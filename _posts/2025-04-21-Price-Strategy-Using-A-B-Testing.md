@@ -6,7 +6,7 @@ tags: [Python, Coffee]
 ---
 
 # Price Optimization Using A/B Testing: Data-Driven Insights for Retail Strategy
-• A/B Testing • Pricing Analytics • Python • Statistical Testing
+• _A/B Testing_ • _Pricing Analytics_ • _Python_ • _Statistical Testing_
 ## is all about
 ### how much
 #### I LOVE
