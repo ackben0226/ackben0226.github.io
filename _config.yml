@@ -17,13 +17,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # About Section
 subtitle: Data Science <span style="color:#f58506"> Portfolio </span>
 location: "London, UK"
-resume_url: /docs/resume.docx
+resume_url: /docs/BENJAMIN ACKAH - FL Talent.docx
 avatar_image: /img/noco3-removebg-preview.png
 
 #-------------------------------
 # Contact links
 linkedln: "https://https://linkedin.com/in/ackahbenjamin//#" # Add your linkedln handle
-github: "https://ackben0226.github.io/#"  # Add your github handle
+github: "https://github.com/ackben0226/#"  # Add your github handle
 
 paginate: 6
 paginate_path: "/page/:num"
