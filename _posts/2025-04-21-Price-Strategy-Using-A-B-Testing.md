@@ -5,7 +5,8 @@ image: "/posts/coffee_python.jpg"
 tags: [Python, Coffee]
 ---
 
-# My first project
+# Price Optimization Using A/B Testing: Data-Driven Insights for Retail Strategy
+• A/B Testing • Pricing Analytics • Python • Statistical Testing
 ## is all about
 ### how much
 #### I LOVE
