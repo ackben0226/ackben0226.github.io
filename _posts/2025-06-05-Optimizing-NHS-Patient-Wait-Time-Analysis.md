@@ -2,7 +2,8 @@
 layout: post
 title: Optimizing NHS Patient Wait Time Analysis 
 image: "/posts/patient wait time.png"
-tags: [Python, Primes, Dashboard]
+tags: [Python, Primes]
+[Dashboard](https://nhsplotlydash-dashboard.onrender.com/)
 ---
 
 **A Data-Driven Framework to Reduce Costs & Improve Emergency Care Efficiency**
