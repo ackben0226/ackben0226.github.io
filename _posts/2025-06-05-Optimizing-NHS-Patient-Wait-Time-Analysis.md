@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optimizing NHS Patient Wait Time Analysis
+title: Optimizing NHS Patient Wait Time Analysis 
 image: "/posts/patient wait time.png"
 tags: [Python, Primes]
 ---
