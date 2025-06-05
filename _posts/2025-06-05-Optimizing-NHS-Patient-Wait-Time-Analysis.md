@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Finding Prime Numbers with Python
+title: Optimizing NHS Patient Wait Time Analysis
 image: "/posts/primes_image.jpeg"
 tags: [Python, Primes]
 ---
