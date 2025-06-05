@@ -2,9 +2,8 @@
 layout: post
 title: Optimizing NHS Patient Wait Time Analysis 
 image: "/posts/patient wait time.png"
-tags: [Python](https://github.com/ackben0226/Optimizing-NHS-Patient-Wait-Time-Analysis/blob/main/Optimizing%20NHS%20Patient%20Wait%20Times%20Analysis.ipynb), Primes]
+tags: [Python, Primes, Dashboard]
 ---
-
 
 **A Data-Driven Framework to Reduce Costs & Improve Emergency Care Efficiency**
 <br/> NHS 111 handles over 20 million calls annually, providing urgent advice and directing patients to the right level of care. Reducing wait times here has nationwide impact.
