@@ -1,15 +1,232 @@
----
-layout: default
----
-<div class="container">
-    <div class="row">
-        <div class="col col-12 col-t-12">
-            <div class="row">
-                {% for post in paginator.posts %}
-                    {% include post-card.html %}
-                {% endfor %}
-            </div>
-            {% include pagination.html %}
-        </div>
+<!-- Sticky Navigation Bar with Dropdowns -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#home">
+      <img src="foto/noco logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+      <span class="fw-bold">My Portfolio</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        
+        <!-- Projects Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#projects" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Projects
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="projectsDropdown">
+            <li><a class="dropdown-item" href="#projects">All Projects</a></li>
+            <li><a class="dropdown-item" href="#data-projects">Data Projects</a></li>
+            <li><a class="dropdown-item" href="#web-projects">Web Projects</a></li>
+          </ul>
+        </li>
+        
+        <!-- Skills Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#skills" id="skillsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Skills</a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="skillsDropdown">
+            <li><a class="dropdown-item" href="#skills">All Skills</a></li>
+            <li><a class="dropdown-item" href="#python">Python</a></li>
+            <li><a class="dropdown-item" href="#visualization">Data Visualization</a></li>
+            <li><a class="dropdown-item" href="#sql">SQL</a></li>
+            <li><a class="dropdown-item" href="#storytelling">Data Storytelling</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#contact" id = "contactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact</a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="contactDropdown">
+            <li><a class="dropdown-item" href="#skills">All Contact</a></li>
+            <li><a class="dropdown-item" href="#linkedin">LinkedIn</a></li>
+            <li><a class="dropdown-item" href="#github">Github</a></li>
+            <li><a class="dropdown-item" href="#whatsapp">WhatsApp</a></li>
+            <li><a class="dropdown-item" href="#medium">Medium</a></li>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+        <img src="foto/noco logo.png" class="logo" style="height: 40px; margin-right: 10px;">
+    </div>
+  </div>
+</body>
+
+  <!-- About Section -->
+  <section class="about-section text-center py-5">
+    <h1 class="display-4 fw-bold mb-4" style="color: pink;">About</h1>
+    <img src="foto/noco3.jpg" alt="Profile Image" class="about-img mb-4">
+    <div class="about-text mx-auto"style="color: pink;">
+      <p><strong>I’m a passionate data scientist and AI developer with a knack for creating insightful, user-focused projects that make a difference. I enjoy blending data with storytelling and meaningful design.</strong></p>
+      <p>With experience in machine learning, market intelligence, and healthcare AI, my goal is to build solutions that are as impactful as they are elegant. Welcome to my portfolio!</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 display-5 fw-bold" style="color: pink;">Projects</h2>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="foto/kidney image.jpg", class="card-img-top" alt="Project 1">
+            <div class="card-body d-flex flex-column" style = "background-color: lightblue">
+              <h5 class="card-title">AI-Powered Early Detection for Chronic Kidney Disease</h5>
+              <p class="mb-2">Developed a <strong>predictive analytics dashboard</strong> using ensemble models <strong>(XGBoost + Random Forest)</strong> achieving <strong>99%</strong> accuracy in identifying <strong>CKD risk</strong>. Engineered with <strong>FastAPI backend</strong> and <strong>Dash visualization.</strong></p>
+              <div class="mt-auto d-flex justify-content-between">
+                <a href="https://github.com/ackben0226/Chronic-Kidney-Disease-Prediction.git" class="btn btn-code btn-sm">Source Code</a>
+                <a href="https://chronic-kidney-disease-dashboard.onrender.com/" class="btn btn-code btn-sm">Dashboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="foto/customer_behaviour.png" class="card-img-top" alt="Project 2">
+            <div class="card-body d-flex flex-column" style = "background-color: lightblue">
+              <h5 class="card-title">Online Retail Customer Behaviour</h5>
+              <p class="mb-2">A data-driven tool that <strong>segment customers</strong> using <strong>RFM analysis</strong> and <strong>K-Means clustering,</strong> helping businesses <strong>refine pricing,</strong> <strong>market positioning,</strong> and <strong>operational strategy.</strong></p>
+              <div class="mt-auto d-flex justify-content-between">
+                <a href="https://github.com/ackben0226/Online-Retail-Customer-Behaviour-Using-K-Means-Clustering" class="btn btn-code btn-sm">Source Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="foto/price optimization.png" class="card-img-top" alt="Project 3">
+            <div class="card-body d-flex flex-column" style = "background-color: lightblue">
+              <h5 class="card-title">Pricing Strategy Optimization</h5>
+              <p class="mb-2">A data-driven analysis using <strong>A/B testing</strong> to compare the effects of <strong>discounts, price increases, and product bundling</strong> on revenue and customer behavior across product categories.</p>
+              <div class="mt-auto d-flex justify-content-between">
+                <a href="https://github.com/ackben0226/Price-Strategy-Using-A-B-Testing" class="btn btn-code btn-sm">Source Code</a>
+                <a href="https://price-strategy-using-a-b-testing.onrender.com/" class = "btn btn-code btn-sm">Dashboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="foto/patient wait time.png" class="card-img-top" alt="Project 3">
+            <div class="card-body d-flex flex-column" style = "background-color: lightblue">
+              <h5 class="card-title">Optimizing NHS Patient Wait Times Analysis</h5>
+              <p class="mb-2">A data-driven analysis using <strong>ARIMA forecasting</strong> and <strong>MILP-driven optimization</strong> to reduce NHS 111 wait times by 27% and unlock £2.1 M in annual savings.</p>
+              <div class="mt-auto d-flex justify-content-between">
+                <a href="https://github.com/ackben0226/Optimizing-NHS-Patient-Wait-Time-Analysis" class="btn btn-code btn-sm">Source Code</a>
+                <a href="https://nhsplotlydash-dashboard.onrender.com/" class="btn btn-code btn-sm">Dashboard</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+<section class="py-5 skills-section">
+  <div class="container">
+    <h2 class="text-center mb-5 display-5 fw-bold" style="color: pink;">Skills</h2>
+    <div class="row g-4">
+
+      <!-- Python Skill -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3 shadow-sm border-0" style = "background-color: lightblue";>
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" class="mx-auto" style="height: 70px;">
+          <h5 class="mt-3">Python</h5>
+          <p class="mb-2"><strong>Pandas, NumPy, Plotly, Scikit-learn, TensorFlow</strong></p>
+        </div>
+      </div>
+
+      <!-- Data Visualization -->
+<div class="col-md-3 col-sm-6">
+  <div class="card text-center p-3 shadow-sm border-0" style = "background-color: lightblue">
+    <img src="foto/data visualization1.png" alt="Visualization" class="mx-auto" style="height: 80px;">
+    <h5 class="mt-3">Data Visualization</h5>
+    <p class="mb-2"><strong>Matplotlib, Seaborn, Plotly, Tableau, Power BI</strong></p>
+  </div>
 </div>
+
+      <!-- SQL -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3 shadow-sm border-0" style = "background-color: lightblue">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" alt="SQL" class="mx-auto" style="height: 70px;">
+          <h5 class="mt-3">SQL</h5>
+          <p class="mt-2"><strong>MySQL, PostgreSQL, SQLite, MSSQL</strong></p>
+        </div>
+      </div>
+
+      <!-- Data Storytelling -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card text-center p-3 shadow-sm border-0" style = "background-color: lightblue">
+          <img src="https://cdn-icons-png.flaticon.com/512/906/906175.png" alt="Storytelling" class="mx-auto" style="height: 70px;">
+          <h5 class="mt-3">Data Storytelling</h5>
+          <p class="mt-2"><strong>Transform data into clear, actionable narratives through visuals and insights that drive decisions.</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4" style="color: pink;">Contact Me</h2>
+    <p class="lead mb-4" style="color: pink;"> Let's connect and collaborate!</p>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <a href="https://linkedin.com/in/ackahbenjamin" target="_blank"><img src="foto/linkedin.png" class="contact-icon" alt="LinkedIn"></a>
+      <a href="https://github.com/ackben0226" target="_blank"><img src="foto/git2.jpg" class="contact-icon" alt="GitHub"></a>
+      <a href="https://wa.me/447442818450" target="_blank"><img src="foto/whatsapp.jpg" class="contact-icon" alt="WhatsApp"></a>
+      <a href="mailto:ack.ben0226@mail.com" target="_blank"><img src="foto/email.jpg" class="contact-icon" alt="Email"></a>
+    </div>
+  </div>
+</section>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="spinner"></div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
