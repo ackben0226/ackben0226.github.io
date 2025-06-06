@@ -1,5 +1,5 @@
 ---
-layout: Post
+layout: post
 title: Price Optimization Using A/B Testing
 image: 
 tag: 
