@@ -1,4 +1,7 @@
-
+---
+layout:
+title: Price Optimization Using A/B Testing
+---
 # Price Optimization Using A/B Testing: Data-Driven Insights for Retail Strategy
 • _A/B Testing_ • _Pricing Analytics_ • _Python_ • _Statistical Testing_
 
