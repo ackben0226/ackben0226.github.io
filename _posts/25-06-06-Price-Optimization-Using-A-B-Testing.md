@@ -80,6 +80,7 @@ __Impact on Revenue by Category:__
 
 ### B) Price Increase (10% Higher)
 __Impact on Revenue__
+
 |Group	|Avg Revenue	|Sales Volume Change|
 |-----|----|-----|
 |Original Price	|$1,106.59	|Baseline|
@@ -89,6 +90,7 @@ __Impact on Revenue__
 
 ### C) Bundling Strategy
 __Revenue Comparison:__
+
 |Group	|Avg Order Value|
 |-----|----|
 |Individual	|$11,395.22|
