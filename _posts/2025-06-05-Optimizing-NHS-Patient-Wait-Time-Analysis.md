@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Optimizing NHS Patient Wait Time Analysis 
-image: "/post/patient_wait_time.png"
+image: "/posts/patient_wait_time.png"
 tags: [Python, Primes]
 ---
 [Dashboard](https://nhsplotlydash-dashboard.onrender.com/)
