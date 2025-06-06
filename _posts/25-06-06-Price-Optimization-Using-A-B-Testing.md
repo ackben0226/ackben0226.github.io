@@ -67,11 +67,12 @@ Determine how pricing strategies affect:
 ## 2. Key Results & Visualization
 ### A) Discount Strategy (10% Off)
 __Impact on Revenue by Category:__
+
 |Category|	Avg Revenue (No Discount)|	Avg Revenue (10% Off)|	P-value|
 |---------|--------|--------|-------|
 |Electronics|	$2,955.06|	$2,576.84|	0.050|
 |Clothing|	$1597.40|	$1396.55|	0.0079|
-|Beauty	|$148.21|$145.52	|0.3506|
+|Beauty	|$148.21 | $145.52	|0.3506|
 
 📌 **Insight:** Sports, Clothing, Electronics, and Home all show significant drops in average revenue per order, except Home that maintains total revenue—others lose both per-unit and total income. Beauty and Books show no significant impact—volume helped raise total revenue, but the profit per sale declined slightly.
 
