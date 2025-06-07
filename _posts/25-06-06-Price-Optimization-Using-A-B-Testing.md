@@ -138,7 +138,7 @@ __Revenue Comparison:__
 - __Deploy real-time A/B tests__ in production.
 - __Refine segmentation__ (e.g., loyalty vs. new customers).
 
-📂 __GitHub Code:__ [Price Strategy Using A/B Testing](https://github.com/ackben0226/Price-Strategy-Using-A-B-Testing/blob/main/Price_Strategy_Using_A_B_Testing.ipynb)
+📂 __GitHub Code:__ [Price Strategy Using A/B Testing](https://github.com/ackben0226/Price-Strategy-Using-A-B-Testing/blob/main/Price_Optimization_Using_A_B_Testing.ipynb)
 
 **🚀By leveraging data-driven pricing, businesses can maximize revenue while maintaining customer satisfaction.** 
 
