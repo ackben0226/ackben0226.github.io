@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 🧠 Chronic Kidney Disease (CKD) Prediction Using Random Forest and XGBoost
+title: AI-Driven Early Detection of Chronic Kidney Disease Using ML Models
 image: "/posts/Kidney-Disease.jpg"
 tags: [Chronic Kidney Disease, Random Forest, XGBoost]
 ---
