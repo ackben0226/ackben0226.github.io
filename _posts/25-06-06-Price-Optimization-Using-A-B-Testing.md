@@ -14,13 +14,7 @@ This project evaluates the impact of **three pricing strategies—discounts, pri
 - __How bundling products influences purchase behavior.__
 
 ## Explore the Interactive Dashboard
-
-<p style="text-align:center; margin: 20px 0;">
-  <a href="/ab_testing/" style="background:#007acc; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight: bold;">
-    🚀 Explore Interactive Dashboard
-  </a>
-</p>
-
+[🚀 Explore Interactive Dashboard](https://price-strategy-using-a-b-testing.onrender.com/)
 This dashboard visualizes the A/B test results and lets you explore the impact of discounts, price increases, and bundles in real time.
 
 ## Key Findings
