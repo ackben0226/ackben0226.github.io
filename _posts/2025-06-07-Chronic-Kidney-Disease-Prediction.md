@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 🧠 Chronic Kidney Disease (CKD) Prediction Using Random Forest and XGBoost
-image: "/posts/primes_image.jpeg"
+image: "/posts/Kidney-Disease.jpg"
 tags: [Chronic Kidney Disease, Random Forest, XGBoost]
 ---
 # 🧠 Early Detection of Chronic Kidney Disease (CKD)
