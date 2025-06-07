@@ -2,9 +2,8 @@
 layout: post
 title: Price Optimization Using A/B Testing
 image: "/posts/ab_testing_800x800.png"
-tag: [Dashboard, A/B Testing, Plotly]
+tag: [Dashboard, A/B Testing, Pricing Analytics, Plotly,]
 ---
-
 • _A/B Testing_ • _Pricing Analytics_ • _Python_ • _Statistical Testing_
 
 ## Executive Summary
