@@ -77,7 +77,7 @@ Determine how pricing strategies affect:
 ### A) Discount Strategy (10% Off)
 
 ```
-Python
+python
 from scipy import stats
 
 def test_discount_strategy(data, category, discount=0.1):
