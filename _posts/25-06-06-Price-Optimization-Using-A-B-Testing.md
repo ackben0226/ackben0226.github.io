@@ -16,7 +16,7 @@ This project evaluates the impact of **three pricing strategies—discounts, pri
 ## Explore the Interactive Dashboard
 
 <p style="text-align:center; margin: 20px 0;">
-  <a href="/ab-testing/" style="background:#007acc; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight: bold;">
+  <a href="/ab_testing/" style="background:#007acc; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight: bold;">
     🚀 Explore Interactive Dashboard
   </a>
 </p>
