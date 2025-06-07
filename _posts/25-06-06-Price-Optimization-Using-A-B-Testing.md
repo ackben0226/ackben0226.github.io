@@ -4,7 +4,6 @@ title: Price Optimization Using A/B Testing
 image: "/posts/ab_testing_800x800.png"
 tag: [Dashboard, A/B Testing, Pricing Analytics, Plotly,]
 ---
-• _A/B Testing_ • _Pricing Analytics_ • _Python_ • _Statistical Testing_
 
 ## Executive Summary
 This project evaluates the impact of **three pricing strategies—discounts, price increases, and product bundling—on sales, revenue, and customer behavior** using A/B testing. By analyzing transaction data from a retail business, we determine:
@@ -44,9 +43,6 @@ This dashboard visualizes the A/B test results and lets you explore the impact o
 **3. Promote Bundles:**
    - Bundle **frequently co-purchased items** (e.g., Beauty + Home).
    - Offer **limited-time bundle deals** to boost adoption.
-
-
-
 
 ## 1. __Project Overview__
 ### Objective
