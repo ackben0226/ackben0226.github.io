@@ -25,12 +25,42 @@ This project was developed in response to the growing burden of Chronic Kidney D
 **1. Data Cleaning & Preprocessing**
 - Whitespace stripping, missing value imputation (mean for numerical, mode for categorical)
 - Feature encoding (categorical to binary or ordinal)
+- Normalization of features
 - Exploratory data analysis (univariate, bivariate)
+
+In this syntax, categorical features are converted into numerical values.
+```python
+from sklearn.preprocessing import LabelEncoder
+
+categorical_columns = ['rbc', 'pc', 'pcc', 'ba', 'htn', 'dm', 'cad', 'appet', 'pe', 'ane', 'classification']
+
+for col in categorical_columns:
+    enc = LabelEncoder()
+    data[col] = enc.fit_transform(data[col])
+```
+
+This code normalizes features to a range [0,1]
+```ruby
+import numpy as np
+
+data1 = data.drop(columns = ['classification'])
+data_normalize = (data1 - data1.min())/(data1.max() - data1.min())
+```
   
 **2. Model Development**
 - Trained and compared Random Forest and XGBoost classifiers
 - Evaluated using accuracy, classification report, and ROC curves
 - Addressed class imbalance with class_weight and stratified validation
+
+```python
+from sklearn.model_selection import train_test_split
+
+X = data_normalize          # Features (X)
+y = data['classification']  # Target (y)
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
 
 **3. Dashboard Development**
 - Built an interactive dashboard with Dash, Plotly, and Dash Bootstrap Components
@@ -43,6 +73,7 @@ This project was developed in response to the growing burden of Chronic Kidney D
 
 **Top predictors:** Albumin, Serum Creatinine, Hypertension, Hemoglobin
 Balanced performance with interpretability and speed
+![image](https://github.com/user-attachments/assets/166ceb9d-6d83-4020-b6f9-6206f92ae6b3)
 
 ## 📊 Results
 
