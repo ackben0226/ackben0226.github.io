@@ -75,6 +75,29 @@ Determine how pricing strategies affect:
    
 ## 2. Key Results & Visualization
 ### A) Discount Strategy (10% Off)
+
+```
+from scipy import stats
+
+def test_discount_strategy(data, category, discount=0.1):
+    # Filter by category
+    
+    cat_data = data[data["Product Category"] == category].copy()
+
+    # Split into A/B groups
+    np.random.seed(42)
+    cat_data["Test Group"] = np.random.choice(["A (No Discount)", "B (Discount)"], 
+                                              size=len(cat_data))
+
+    # Apply discount to Group B
+    cat_data["Adjusted Price"] = np.where(
+        cat_data["Test Group"] == "B (Discount)",
+        cat_data["Price per Unit"] * (1 - discount),
+        cat_data["Price per Unit"]
+    )
+    cat_data["Adjusted Revenue"] = cat_data["Quantity"] * cat_data["Adjusted Price"]
+
+```
 __Impact on Revenue by Category:__
 
 |Category|	Avg Revenue (No Discount)|	Avg Revenue (10% Off)|	P-value|
