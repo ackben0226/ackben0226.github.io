@@ -15,6 +15,7 @@ This project evaluates the impact of **three pricing strategies—discounts, pri
 
 ## Explore the Interactive Dashboard
 [🚀 Explore Interactive Dashboard](https://price-strategy-using-a-b-testing.onrender.com/)
+
 This dashboard visualizes the A/B test results and lets you explore the impact of discounts, price increases, and bundles in real time.
 
 ## Key Findings
