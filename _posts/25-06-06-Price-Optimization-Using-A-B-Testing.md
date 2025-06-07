@@ -2,7 +2,7 @@
 layout: post
 title: Price Optimization Using A/B Testing
 image: "/posts/AB_test.png"
-tag: 
+tag: []
 ---
 
 • _A/B Testing_ • _Pricing Analytics_ • _Python_ • _Statistical Testing_
