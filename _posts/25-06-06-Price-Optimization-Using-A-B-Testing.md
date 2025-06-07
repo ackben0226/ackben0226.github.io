@@ -111,6 +111,30 @@ __Impact on Revenue by Category:__
 ![image](https://github.com/user-attachments/assets/55047acf-1338-43e2-ba5d-8308fba7f933)
 
 ### B) Price Increase (10% Higher)
+
+```
+def analyze_price_impact(data, price_increase=0.10, random_seed=42):
+    
+    # Set random seed for reproducibility
+    np.random.seed(random_seed)
+    
+    # 1. Experimental Setup
+    data["Test Group"] = np.random.choice(
+        ["A (Original Price)", "B (10% Price Increase)"], 
+        size=len(data),
+        #p=[0.5, 0.5]  # Equal split for A/B test
+    )
+    
+    # 2. Apply Price Adjustment
+    data["Adjusted Price"] = np.where(
+        data["Test Group"] == "B (10% Price Increase)",
+        data["Price per Unit"] * (1 + price_increase),
+        data["Price per Unit"]
+    )
+    
+    # 3. Calculate Metrics
+    data["Adjusted Revenue"] = data["Quantity"] * data["Adjusted Price"]
+```
 __Impact on Revenue__
 
 |Group	|Avg Revenue	|Sales Volume Change|
