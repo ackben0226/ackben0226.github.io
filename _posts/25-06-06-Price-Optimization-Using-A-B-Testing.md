@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Price Optimization Using A/B Testing
-image: /posts/AB test.png
+image: "/posts/AB test.png"
 tag: 
 ---
 
