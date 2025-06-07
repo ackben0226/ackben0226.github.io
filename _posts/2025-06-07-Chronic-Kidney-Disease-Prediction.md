@@ -73,7 +73,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 - Modular, scalable Python codebase
 - Visual and interpretive elements for health professionals
 
-**Top predictors:** Albumin, Serum Creatinine, Hypertension, Hemoglobin
+**Top predictors:** Serum Creatinine, Hypertension, Hemoglobin, Red Blood Cells, Specific Gravity, Hypertension, Age, etc.
+
 ![image](https://github.com/user-attachments/assets/166ceb9d-6d83-4020-b6f9-6206f92ae6b3)
 
 ## 📊 Results
