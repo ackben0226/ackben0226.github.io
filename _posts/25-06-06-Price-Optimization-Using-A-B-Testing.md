@@ -76,8 +76,7 @@ Determine how pricing strategies affect:
 ## 2. Key Results & Visualization
 ### A) Discount Strategy (10% Off)
 
-```
-python
+```python
 from scipy import stats
 
 def test_discount_strategy(data, category, discount=0.1):
@@ -113,7 +112,7 @@ __Impact on Revenue by Category:__
 
 ### B) Price Increase (10% Higher)
 
-```
+```python
 def analyze_price_impact(data, price_increase=0.10, random_seed=42):
     
     # Set random seed for reproducibility
@@ -147,7 +146,7 @@ __Impact on Revenue__
 
 ### C) Bundling Strategy
 
-```
+```ruby
 def determine_bundle_prices(discount=0.15):
     
     # Average prices per category
