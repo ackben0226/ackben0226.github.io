@@ -145,6 +145,26 @@ __Impact on Revenue__
 📌 __Insight:__ Price hikes boost revenue but demand drops slightly.
 
 ### C) Bundling Strategy
+
+```
+def determine_bundle_prices(discount=0.15):
+    
+    # Average prices per category
+    avg_unit_price = data.groupby('Product Category')['Price per Unit'].mean()
+    prices = avg_unit_price[avg_unit_price.index != 'Bundle']
+
+    # Generate all unique category pairs
+    category_pairs = list(combinations(prices.keys(), 2))
+
+    # Calculate bundle prices
+    bundle_prices = {}
+    for cat1, cat2 in category_pairs:
+        individual_total = prices[cat1] + prices[cat2]
+        bundle_price = round(individual_total * (1 - discount), 2)
+        bundle_prices[(cat1, cat2)] = (round(individual_total, 2), bundle_price)
+
+    return bundle_prices
+```
 __Revenue Comparison:__
 
 |Group	|Avg Order Value|
