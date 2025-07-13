@@ -123,8 +123,6 @@ This Tableau dashboard visualizes the K-Means clustering results from the RFM an
 🔗 **[Click here to view the live dashboard on Tableau Public
 [https://public.tableau.com/app/profile/benja%20mit/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes](https://public.tableau.com/app/profile/benjamin.ackah/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes)
 
-![RFM Dashboard Screenshot](images/rfm_dashboard_preview.png)
-
 ## 📈 Business Value Delivery
 ### Customer Segment Matrix
 | Segment |	Size	| Avg CLV |	Strategy	| Key Metric |
