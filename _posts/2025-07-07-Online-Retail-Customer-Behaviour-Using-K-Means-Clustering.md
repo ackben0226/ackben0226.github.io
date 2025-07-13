@@ -113,12 +113,13 @@ The table below shows a sample of customers segmented using RFM scores and K-Mea
 |    18225   |    5509.12    |     12    | 2011-12-06 13:27:00 |        2       |    -3   |    DELIGHT   |
 |    18229   |    7276.90    |     20    | 2011-11-28 09:48:00 |       11       |    -3   |    DELIGHT   |
 
-## Full RFM Dashboard
+## RFM Segmentation Dashboard
+This Tableau dashboard visualizes the K-Means clustering results from the RFM analysis. It highlights customer segments like **Delight**, **Reward**, **Re-Engage**, and **Retain** with actionable insights based on Recency, Frequency, and Monetary patterns.
 <iframe src="https://public.tableau.com/views/rfmdashboard_17522584516860/rfmDashboard?:showVizHome=no&:embed=true" width="100%" height="600px" frameborder="0"></iframe>
 
-### 📊 RFM Segmentation Dashboard (Interactive)
+<iframe seamless frameborder="0" src="https://public.tableau.com/views/DSIEarthquakeDashboard/DSIEarthquakeTracker?:embed=yes&:display_count=yes&:showVizHome=no" width = '1090' height = '900'></iframe>
 
-This Tableau dashboard visualizes the K-Means clustering results from the RFM analysis. It highlights customer segments like **Delight**, **Reward**, **Re-Engage**, and **Retain** with actionable insights based on Recency, Frequency, and Monetary patterns.
+### 📊 RFM Segmentation Dashboard (Interactive)
 
 🔗 **[Click here to view the live dashboard on Tableau Public
 [https://public.tableau.com/app/profile/benja%20mit/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes](https://public.tableau.com/app/profile/benjamin.ackah/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes)
