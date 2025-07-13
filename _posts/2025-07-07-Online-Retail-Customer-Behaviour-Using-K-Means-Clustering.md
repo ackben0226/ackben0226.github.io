@@ -4,10 +4,10 @@ title: Online Retail Customer Behaviour Using K-Means Clustering
 image: "/posts/Customer_Segmentation.png"
 tags: [Python, Primes]
 ---
-# 🧠 Customer Segmentation for Retail Growth | K-Means Clustering
+# Customer Segmentation for Retail Growth | K-Means Clustering
 
 **Driving 360° Customer Understanding Through Machine Learning**  
-*Leveraging RFM analysis and unsupervised learning to optimize marketing ROI*
+In this project we are going to leverage RFM analysis and unsupervised learning to optimize marketing ROI
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![ML](https://img.shields.io/badge/ML-Scikit--learn%20|%20KMeans-yellowgreen)
