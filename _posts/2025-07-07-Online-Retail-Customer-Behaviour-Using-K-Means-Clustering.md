@@ -170,8 +170,8 @@ This Tableau dashboard visualizes the K-Means clustering results from the RFM an
 
 ## 📈 Business Value Delivery
 ### Customer Segment Matrix
-| Cluster        | Label     | Characteristics / Rationale                                                                                                     | Action / Potential Strategy                                                                                     |
-| -------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Cluster        | Label     | Characteristics / Rationale  | Action / Potential Strategy  |
+| -------------- | --------- | ---------------------------- | -----------------------------|
 | **Cluster 0**  | Retain    | High-value customers who purchase regularly, though not always very recently. Focus on retention to maintain loyalty and spend. | Implement loyalty programs, personalized offers, and regular engagement to keep them active.                    |
 | **Cluster 1**  | Re-Engage | Lower-value, infrequent buyers who haven’t purchased recently. Focus on re-engagement to reactivate purchasing behavior.        | Use targeted marketing campaigns, special discounts, or reminders to encourage repeat purchases.                |
 | **Cluster 2**  | Nurture   | Least active and lowest-value customers who have made recent purchases. Likely new or needing nurturing to boost engagement.    | Build relationships, provide excellent service, and offer incentives to encourage more frequent purchases.      |
