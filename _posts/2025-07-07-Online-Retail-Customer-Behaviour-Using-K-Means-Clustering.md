@@ -170,15 +170,18 @@ This Tableau dashboard visualizes the K-Means clustering results from the RFM an
 
 ## 📈 Business Value Delivery
 ### Customer Segment Matrix
-| Cluster        | Label     | Characteristics / Rationale  | Action / Potential Strategy  |
-| -------------- | --------- | ---------------------------- | -----------------------------|
-| **Cluster 0**  | Retain    | High-value customers who purchase regularly, though not always very recently. Focus on retention to maintain loyalty and spend. | Implement loyalty programs, personalized offers, and regular engagement to keep them active.                    |
-| **Cluster 1**  | Re-Engage | Lower-value, infrequent buyers who haven’t purchased recently. Focus on re-engagement to reactivate purchasing behavior.        | Use targeted marketing campaigns, special discounts, or reminders to encourage repeat purchases.                |
-| **Cluster 2**  | Nurture   | Least active and lowest-value customers who have made recent purchases. Likely new or needing nurturing to boost engagement.    | Build relationships, provide excellent service, and offer incentives to encourage more frequent purchases.      |
-| **Cluster 3**  | Reward    | High-value, very frequent buyers who are actively purchasing. Most loyal customers needing recognition to sustain engagement.   | Implement robust loyalty programs, offer exclusive deals, and recognize their loyalty to maintain satisfaction. |
-| **Cluster -1** | Pamper    | High spenders but not necessarily frequent buyers. Large but infrequent purchases.                                              | Maintain loyalty with personalized offers or luxury services tailored to their high spending capacity.          |
-| **Cluster -2** | Upsell    | Frequent buyers who spend less per purchase. Consistently engaged customers who could benefit from upselling opportunities.     | Implement loyalty programs or bundle deals to encourage higher spending per visit due to their frequent visits. |
-| **Cluster -3** | Delight   | Top-tier customers with extreme spending and frequent purchases. Require special attention.                                     | Develop VIP programs or exclusive offers to maintain loyalty and encourage continued engagement.                |
+### 🎯 Key Customer Segments Identified
+
+| **Cluster**   | **Label**    | **Characteristics**                                                              | **Actionable Strategy**                                                                 |
+|---------------|--------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Cluster 0     | Retain       | High-spending, moderately frequent buyers; loyal but not very recent.             | Use loyalty rewards and proactive engagement to avoid churn.                            |
+| Cluster 1     | Re-Engage    | Infrequent, low-value buyers with long recency; disengaged.                       | Use personalized win-back campaigns and incentives to revive interest.                  |
+| Cluster 2     | Nurture      | New or passive customers with low spending but recent activity.                   | Build brand trust through onboarding, offers, and customer care.                        |
+| Cluster 3     | Reward       | High-frequency, high-value, recent customers—our most loyal group.                | Reward them with VIP programs, exclusive offers, and early access to new products.      |
+| Cluster -1    | Pamper       | Big spenders with infrequent purchases; high R, low F.                            | Offer tailored luxury experiences or high-ticket upsells to reinforce value.            |
+| Cluster -2    | Upsell       | Frequent shoppers with low average spend.                                         | Encourage bundle purchases and upselling through strategic recommendations.             |
+| Cluster -3    | Delight      | Top-tier customers—extreme in recency, frequency, and monetary value.             | Provide white-glove service and premium recognition to build lifetime loyalty.          |
+
 
 
 
