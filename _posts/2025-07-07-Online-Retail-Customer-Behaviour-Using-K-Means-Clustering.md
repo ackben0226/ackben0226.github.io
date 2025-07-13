@@ -17,17 +17,34 @@ The goal is to uncover hidden patterns in customer behavior and derive actionabl
 - **Enabled Personalized Marketing** Through 4 Distinct Behavioral Profiles
 
 ## Action
+To successfully embark on this project, it is essential to first ensure that the data we work with is free from irregularities, such as missing values, outliers, and other inconsistencies.
 
----
-## 🔍 Technical Implementation
-### 📊 Data Pipeline Architecture
+## Missing Values
+The CustomerID column in the dataset has approximately 25% missing values, which is substantial. Rather than dropping these rows, we opt to impute the missing values using the median.
 
-## 🔧 Core Components
-### 1. Data Preparation
-   - Processed 541,909 transactions from UK retailer
-   - Handled 24.9% missing CustomerIDs
-   - Detected & treated outliers using IQR ranges
-     
+```ruby
+# impute rows where values are missing
+median_value = data['CustomerID'].median()
+data['CustomerID'].fillna(median_value, inplace=True)
+```
+
+### Outlier
+The presence of outliers can distord/shift the cluster centroids and lead to less accurate cluster assignments. This significantly affects the effectiveness of K-means clustering.   
+To handle outliers, careful consideration is needed since extreme values may represent important customer behaviors rather than errors.
+<br/> In this section, we use Pandas’ .describe() method to examine the distribution and spread of our RFM variables — Recency, Frequency, and Monetary Value. 
+<br/> The summary statistics obtained help us understand the data characteristics before proceeding with clustering. The results are shown in the table below.
+
+|   Metric  | Quantity |     InvoiceDate     |  UnitPrice | CustomerID |
+| :-------: | :------: | :-----------------: | :--------: | :--------: |
+|   count   |  541,909 |       541,909       |   541,909  |   406,829  |
+|    mean   |   9.55   | 2011-07-04 13:34:57 |    4.61    |  15,287.69 |
+|    min    |  -80,995 | 2010-12-01 08:26:00 | -11,062.06 |   12,346   |
+|    25%    |   1.00   | 2011-03-28 11:34:00 |    1.25    |   13,953   |
+|    50%    |   3.00   | 2011-07-19 17:17:00 |    2.08    |   15,152   |
+|    75%    |   10.00  | 2011-10-19 11:27:00 |    4.13    |   16,791   |
+|    max    |  80,995  | 2011-12-09 12:50:00 |  38,970.00 |   18,287   |
+|    std    |  218.08  |         N/A         |    96.76   |  1,713.60  |
+
 ### 2. RFM Feature Engineering
 We will create features that form the basis of RFM analysis (*Recency, Frequency, Monetary*) and *Total Revenue*, and are needed for K-Means clustering and business decision-making.
 ```ruby
@@ -47,6 +64,40 @@ max_invoice_date = agg_data['LastInvoiceDate'].max()
 agg_data['Recency'] = (max_invoice_date - agg_data['LastInvoiceDate']).dt.days
 ```
 
+## Dealing with Outliers
+From the summary statistics above, max column values of quantity and unit price are much higher than the median value, depicting outliers.
+Because of this, we apply some outlier removal in order to facilitate generalisation across the full dataset.
+<br/> We apply the 'boxplot method' by removing any rows where the values in the RFM columns fall outside twice the interquartile range (IQR).
+
+```ruby
+# Dealing with Monetary Outlier
+mon_q1 = agg_data['MonetaryValue'].quantile(0.25)
+mon_q3 = agg_data['MonetaryValue'].quantile(0.75)
+
+IQR = mon_q3 - mon_q1
+
+monetary_outliers = agg_data[(agg_data['MonetaryValue'] > (mon_q3 + 1.5 * IQR))
+    | (agg_data['MonetaryValue'] < (mon_q1 - 1.5 * IQR))].copy()
+
+# Dealing with Frequency Outlier
+freq_q1 = agg_data['Frequency'].quantile(0.25)
+freq_q3 = agg_data['Frequency'].quantile(0.75)
+
+IQR = freq_q3 - freq_q1
+
+frequency_outliers = agg_data[(agg_data['Frequency'] > (freq_q3 + 1.5 * IQR))
+    | (agg_data['Frequency'] < (freq_q1 - 1.5 * IQR))].copy()
+
+# Dealing with Recency Outlier
+rec_q1 = agg_data['Recency'].quantile(0.25)
+rec_q3 = agg_data['Recency'].quantile(0.75)
+
+IQR = rec_q3 - rec_q1
+
+recency_outliers = agg_data[(agg_data['Recency'] > (rec_q3 + 1.5 * IQR))
+    | (agg_data['Recency'] < (rec_q1 - 1.5 * IQR))].copy()
+```
+     
 ### 3. Machine Learning Workflow (Optimal K)
 ```ruby
 # Assuming non_outliers_scaled is already defined
@@ -68,10 +119,14 @@ for k in k_values:
     inertia.append(kmeans.inertia_)
 ```
 We need to find the optimal k (number of clusters) that best separates your customers based on their Recency, Frequency, and Monetary behavior. This is done using the above syntax before proceeding with the Elbow Method visualization.
+[!image][<img width="1014" height="547" alt="image" src="https://github.com/user-attachments/assets/1c00101a-37d5-4947-8be2-3c87e2d32454" />
+]
 
 ### Cluster Label
 To identify customers such as high-value loyal customers, at-risk customers, and one-time buyers, K-Means clustering uses RFM scores (numerical values) to group customers into clusters and, hence labeled as either **re-engage, retain, delight, reward, etc.** based on similarities in their purchasing behavior. Each customer is assigned to the cluster whose centroid best represents their RFM profile.
 We visualize a 3-dimensional scatter plot for the clusters to provide a better understanding of these segments, with Recency, Frequency, and Monetary value on each axis.
+[!image][<img width="794" height="812" alt="image" src="https://github.com/user-attachments/assets/5636b4c4-c9bd-4545-ab96-de564e1b2e6d" />
+]
 
 ```ruby
 kmeans = KMeans(n_clusters = 4, random_state = 42, max_iter = 1000)
@@ -117,76 +172,24 @@ The table below shows a sample of customers segmented using RFM scores and K-Mea
 This Tableau dashboard visualizes the K-Means clustering results from the RFM analysis. It highlights customer segments like **Delight**, **Reward**, **Re-Engage**, and **Retain** with actionable insights based on Recency, Frequency, and Monetary patterns.
 <iframe src="https://public.tableau.com/views/rfmdashboard_17522584516860/rfmDashboard?:showVizHome=no&:embed=true" width="100%" height="600px" frameborder="0"></iframe>
 
-<iframe seamless frameborder="0" src="https://public.tableau.com/views/DSIEarthquakeDashboard/DSIEarthquakeTracker?:embed=yes&:display_count=yes&:showVizHome=no" width = '1090' height = '900'></iframe>
-
-### 📊 RFM Segmentation Dashboard (Interactive)
-
-🔗 **[Click here to view the live dashboard on Tableau Public
-[https://public.tableau.com/app/profile/benja%20mit/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes](https://public.tableau.com/app/profile/benjamin.ackah/viz/rfmdashboard_17522584516860/rfmDashboard?publish=yes)
-
 ## 📈 Business Value Delivery
 ### Customer Segment Matrix
-| Segment |	Size	| Avg CLV |	Strategy	| Key Metric |
-|---------|-------|---------|----------|------------|
-|Champions|	5%    |	£1,240  |	VIP Loyalty Program|	6.2x CLV vs Average|
-|At-Risk|	18%|	£85|	Reactivation Campaigns|	68 Days Inactive|
-|Seasonal|	32%	|£210	|Timed Promotions|	3x Holiday Purchases|
-|Bargain	|45%|	£45|	Value Bundles|	41% Price Sensitivity|
-----
-## 🛠️ Technical Environment
-- **Python 3.10 | Pandas 2.0 | Scikit-learn 1.2 | Plotly 5.15**
-- **Tools:** Jupyter, Streamlit
-- **Key Algorithms:**
-      KMeans++ initialization,
-      PCA dimensionality reduction,
-      IQR outlier detection,
-      Automated hyperparameter tuning
+| Cluster                                       | Label     | Characteristics / Rationale                                                                                                     | Action / Potential Strategy                                                                                     |
+| --------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Cluster 0**                          | Retain    | High-value customers who purchase regularly, though not always very recently. Focus on retention to maintain loyalty and spend. | Implement loyalty programs, personalized offers, and regular engagement to keep them active.                    |
+| **Cluster 1**                         | Re-Engage | Lower-value, infrequent buyers who haven’t purchased recently. Focus on re-engagement to reactivate purchasing behavior.        | Use targeted marketing campaigns, special discounts, or reminders to encourage repeat purchases.                |
+| **Cluster 2**                        | Nurture   | Least active and lowest-value customers who have made recent purchases. Likely new or needing nurturing to boost engagement.    | Build relationships, provide excellent service, and offer incentives to encourage more frequent purchases.      |
+| **Cluster 3**                           | Reward    | High-value, very frequent buyers who are actively purchasing. Most loyal customers needing recognition to sustain engagement.   | Implement robust loyalty programs, offer exclusive deals, and recognize their loyalty to maintain satisfaction. |
+| **Cluster -1**             | Pamper    | High spenders but not necessarily frequent buyers. Large but infrequent purchases.                                              | Maintain loyalty with personalized offers or luxury services tailored to their high spending capacity.          |
+| **Cluster -2**            | Upsell    | Frequent buyers who spend less per purchase. Consistently engaged customers who could benefit from upselling opportunities.     | Implement loyalty programs or bundle deals to encourage higher spending per visit due to their frequent visits. |
+| **Cluster -3** | Delight   | Top-tier customers with extreme spending and frequent purchases. Require special attention.                                     | Develop VIP programs or exclusive offers to maintain loyalty and encourage continued engagement.                |
 
-## 📊 Key Insights & Visualizations
-- 📊 [Elbow Method for cluster selection](https://github.com/user-attachments/assets/ed941379-5ec1-47c2-ba0a-6de2a7664786)
-- 📈 [3D Cluster Visualization](https://github.com/user-attachments/assets/c6a9f178-a3e8-428a-9790-3d3a15628d72)
-- 🔥 RFM Heatmap
 
-## 🧩 Key Challenges & Solutions
+## Growth & Next Steps
+While RFM and K-Means yielded meaningful segments, using DBSCAN or Gaussian Mixture Models algorithms could capture more complex patterns. Further tuning of K-Means parameters and ensemble methods may improve cluster stability.
 
-### 1. Handling Sparse Customer Data
-**Problem**  
-24.9% of transactions lacked CustomerIDs, risking biased clusters.
+Incorporating additional data such as demographics and engagement metrics, along with advanced feature engineering on purchase timing and product preferences, would enhance segmentation and enable more targeted marketing strategies.
 
-**Solution**  
-- Conducted sensitivity analysis comparing full data vs. cleaned subset  
-- Implemented conservative removal with documentation  
-- Validated cluster stability post-cleaning
-
-**Outcome**  
-73.4% data retention with <2% CLV estimation variance
-
-### 2. Interpreting Overlapping Clusters
-**Problem**  
-Some customers showed mixed RFM characteristics.
-
-**Solution**  
-- Added t-SNE visualization for non-linear patterns  
-- Created hybrid strategies for borderline segments  
-- Tracked cluster migration over time
-
-**Outcome**  
-15% higher campaign ROI through nuanced targeting
-
-## 🚀 Getting Started
-### Installation
-```bash
-git clone https://github.com/ackben0226/customer-segmentation.git
-pip install -r requirements.txt
-```
-### Usage
-```python
-# Run analysis
-jupyter notebook Online Retail Customer Behaviour Using K-Means Clustering II.ipynb
-
-# Launch dashboard
-streamlit run app.py
-```
 ### 📚 Documentation
 - Dataset Source: UCI Machine Learning Repository
 
