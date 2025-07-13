@@ -10,12 +10,6 @@ tags: [Python, K-Means, Tableau]
 In this project we are going to leverage RFM analysis and K-Means Clustering to optimize marketing ROI for a retail growth.
 The goal is to uncover hidden patterns in customer behavior and derive actionable business insights to help drive targeted marketing, customer retention, and sales growth strategies.
 
-## 🎯 Business Impact Highlights
-- **27% Revenue Concentration** in High-Value Cluster (5% of customer base)
-- **Identified 18% At-Risk Customers** with Reactivation Potential
-- **Built Dynamic Segmentation Framework** Reducing Campaign Costs by 32% (Simulated)
-- **Enabled Personalized Marketing** Through 4 Distinct Behavioral Profiles
-
 ## Action
 To successfully embark on this project, it is essential to first ensure that the data we work with is free from irregularities, such as missing values, outliers, and other inconsistencies.
 
@@ -119,12 +113,14 @@ for k in k_values:
     inertia.append(kmeans.inertia_)
 ```
 We need to find the optimal k (number of clusters) that best separates your customers based on their Recency, Frequency, and Monetary behavior. This is done using the above syntax before proceeding with the Elbow Method visualization.
+
 [!image][<img width="1014" height="547" alt="image" src="https://github.com/user-attachments/assets/1c00101a-37d5-4947-8be2-3c87e2d32454" />
 ]
 
 ### Cluster Label
 To identify customers such as high-value loyal customers, at-risk customers, and one-time buyers, K-Means clustering uses RFM scores (numerical values) to group customers into clusters and, hence labeled as either **re-engage, retain, delight, reward, etc.** based on similarities in their purchasing behavior. Each customer is assigned to the cluster whose centroid best represents their RFM profile.
 We visualize a 3-dimensional scatter plot for the clusters to provide a better understanding of these segments, with Recency, Frequency, and Monetary value on each axis.
+
 [!image][<img width="794" height="812" alt="image" src="https://github.com/user-attachments/assets/5636b4c4-c9bd-4545-ab96-de564e1b2e6d" />
 ]
 
