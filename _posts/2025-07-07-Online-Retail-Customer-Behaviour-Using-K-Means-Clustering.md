@@ -7,15 +7,8 @@ tags: [Python, K-Means]
 # Customer Segmentation for Retail Growth | K-Means Clustering
 
 **Driving 360° Customer Understanding Through Machine Learning**  
-In this project we are going to leverage RFM analysis and unsupervised learning to optimize marketing ROI
-
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![ML](https://img.shields.io/badge/ML-Scikit--learn%20|%20KMeans-yellowgreen)
-![Data](https://img.shields.io/badge/Data-541K+%20Transactions-orange)
-![Deployment](https://img.shields.io/badge/Deployment-Streamlit|PowerBI-blueviolet)
-![Status](https://img.shields.io/badge/Production-Ready-brightgreen)
-
----
+In this project we are going to leverage RFM analysis and K-Means Clustering to optimize marketing ROI for a retail growth.
+The goal is to uncover hidden patterns in customer behavior and derive actionable business insights to help drive targeted marketing, customer retention, and sales growth strategies.
 
 ## 🎯 Business Impact Highlights
 - **27% Revenue Concentration** in High-Value Cluster (5% of customer base)
@@ -23,13 +16,11 @@ In this project we are going to leverage RFM analysis and unsupervised learning 
 - **Built Dynamic Segmentation Framework** Reducing Campaign Costs by 32% (Simulated)
 - **Enabled Personalized Marketing** Through 4 Distinct Behavioral Profiles
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ackben0226)
-[![View Demo](https://img.shields.io/badge/Streamlit-Demo-FF4B4B)](http://localhost:8501/)
+## Action
 
 ---
 ## 🔍 Technical Implementation
 ### 📊 Data Pipeline Architecture
-![mermaid_20250421_827cce](https://github.com/user-attachments/assets/2d8463cd-224b-456d-b77f-5090caf55227)
 
 ## 🔧 Core Components
 ### 1. Data Preparation
@@ -38,15 +29,22 @@ In this project we are going to leverage RFM analysis and unsupervised learning 
    - Detected & treated outliers using IQR ranges
      
 ### 2. RFM Feature Engineering
+We will create features that form the basis of RFM analysis (Recency, Frequency, Monetary) and Total Revenue, and are needed for K-Means clustering and business decision-making.
+```ruby
+# Creating column for total sale of each line
+cleaned_data['TotalSale'] = cleaned_data['Quantity']*cleaned_data['UnitPrice']
+```
 
 ```python
-def calculate_rfm(data):
-    snapshot_date = data['InvoiceDate'].max() + pd.Timedelta(days=1)
-    rfm = data.groupby('CustomerID').agg({
-        'InvoiceDate': lambda x: (snapshot_date - x.max()).days,  # Recency
-        'InvoiceNo': 'nunique',                                    # Frequency
-        'TotalAmount': 'sum'                                       # Monetary
-    })
+# Calculate Frequency and Monetary Values of customers
+agg_data = cleaned_data.groupby(by = 'CustomerID', as_index = False) \
+    .agg(MonetaryValue = ('TotalSale', 'sum'),           # Monetary
+        Frequency = ('InvoiceNo', 'nunique'),            # Frequency
+        LastInvoiceDate = ('InvoiceDate', 'max'))        
+
+# Calculate Recency of Customers
+max_invoice_date = agg_data['LastInvoiceDate'].max()
+agg_data['Recency'] = (max_invoice_date - agg_data['LastInvoiceDate']).dt.days
 ```
 
 ### 3. Machine Learning Workflow
