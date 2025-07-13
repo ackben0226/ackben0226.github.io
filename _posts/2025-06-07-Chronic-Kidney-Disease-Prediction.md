@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AI-Driven Early Detection of Chronic Kidney Disease Using ML Models
-image: "/posts/kidney image.jpg"
+image: "/posts/kidney image.jpeg"
 tags: [Chronic Kidney Disease, Random Forest, XGBoost]
 ---
 
