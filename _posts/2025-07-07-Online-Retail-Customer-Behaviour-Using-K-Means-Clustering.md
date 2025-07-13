@@ -168,19 +168,20 @@ The table below shows a sample of customers segmented using RFM scores and K-Mea
 This Tableau dashboard visualizes the K-Means clustering results from the RFM analysis. It highlights customer segments like **Delight**, **Reward**, **Re-Engage**, and **Retain** with actionable insights based on Recency, Frequency, and Monetary patterns.
 <iframe src="https://public.tableau.com/views/rfmdashboard_17522584516860/rfmDashboard?:showVizHome=no&:embed=true" width="100%" height="600px" frameborder="0"></iframe>
 
+
 ## 📈 Business Value Delivery
+
 ### Customer Segment Matrix
-### 🎯 Key Customer Segments Identified
 
 | **Cluster**   | **Label**    | **Characteristics**                                                              | **Actionable Strategy**                                                                 |
 |---------------|--------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| Cluster 0     | Retain       | High-spending, moderately frequent buyers; loyal but not very recent.             | Use loyalty rewards and proactive engagement to avoid churn.                            |
-| Cluster 1     | Re-Engage    | Infrequent, low-value buyers with long recency; disengaged.                       | Use personalized win-back campaigns and incentives to revive interest.                  |
-| Cluster 2     | Nurture      | New or passive customers with low spending but recent activity.                   | Build brand trust through onboarding, offers, and customer care.                        |
-| Cluster 3     | Reward       | High-frequency, high-value, recent customers—our most loyal group.                | Reward them with VIP programs, exclusive offers, and early access to new products.      |
-| Cluster -1    | Pamper       | Big spenders with infrequent purchases; high R, low F.                            | Offer tailored luxury experiences or high-ticket upsells to reinforce value.            |
-| Cluster -2    | Upsell       | Frequent shoppers with low average spend.                                         | Encourage bundle purchases and upselling through strategic recommendations.             |
-| Cluster -3    | Delight      | Top-tier customers—extreme in recency, frequency, and monetary value.             | Provide white-glove service and premium recognition to build lifetime loyalty.          |
+| Cluster 0     | Retain       | High-spending, moderately frequent buyers; loyal but not very recent.             | Implement loyalty programs, personalized offers, and regular engagement to ensure they remain active.                            |
+| Cluster 1     | Re-Engage    | Infrequent, low-value buyers with long recency; disengaged.                       | Use targeted marketing campaigns, special discounts, or reminders to encourage them to return and purchase again.                  |
+| Cluster 2     | Nurture      | New or passive customers with low spending but recent activity.                   | Focus on building relationships, providing excellent customer service, and offering incentives to encourage more frequent purchases.                        |
+| Cluster 3     | Reward       | High-frequency, high-value, recent customers—our most loyal group.                | Implement a robust loyalty program, provide exclusive offers, and recognize their loyalty to keep them engaged and satisfied.      |
+| Cluster -1    | Pamper       | Big spenders with infrequent purchases; high R, low F.                            | Focus on maintaining their loyalty with personalized offers or luxury services that cater to their high spending capacity.            |
+| Cluster -2    | Upsell       | Frequent shoppers with low average spend.                                         | Implement loyalty programs or bundle deals to encourage higher spending per visit, given their frequent engagement.             |
+| Cluster -3    | Delight      | Top-tier customers—extreme in recency, frequency, and monetary value.             |  Develop VIP programs or exclusive offers to maintain their loyalty and encourage continued engagement..          |
 
 
 
