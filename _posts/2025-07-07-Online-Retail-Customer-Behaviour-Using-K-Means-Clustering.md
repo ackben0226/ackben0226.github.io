@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Online Retail Customer Behaviour Using K-Means Clustering 
-image: "/img/Customer_Segmentation.png"
+image: "/posts/Customer_Segmentation.png"
 tags: [Python, Primes]
 ---
 # 🧠 Customer Segmentation for Retail Growth | K-Means Clustering
