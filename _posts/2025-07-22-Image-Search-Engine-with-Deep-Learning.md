@@ -1,7 +1,7 @@
 # Image Search Engine with Deep Learning
 
 In this post we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
-<br/> We leverage pre-trained deep learning models like VGG16, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
+<br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
 
 🎯 Key Features
 ✅ Deep feature extraction using VGG16
@@ -118,8 +118,7 @@ You said:
 Write the action
 
 
-ChatGPT said:
-Certainly! Here's the "Actions" section for your portfolio or case study-style README, written in a clear and concise format that highlights your contributions and technical workflow:
+
 
 🛠️ Actions
 I designed and implemented an image search engine using deep learning techniques with the following key steps:
