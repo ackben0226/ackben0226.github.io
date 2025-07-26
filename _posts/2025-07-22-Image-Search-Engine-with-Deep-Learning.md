@@ -46,6 +46,12 @@ def preprocess_image(image_path):
 
 ## Feature Extraction
 After preprocessing the images, we use a pre-trained VGG16 model (excluding the top classification layers) to extract 4096-dimensional feature vectors from each image. These feature vectors, or embeddings, represent high-level visual characteristics captured by the model and are crucial for performing accurate image similarity comparisons.
+```ruby
+# featurise image function/feature extraction
+def featurise_image(image):
+    featurise_vector =  model.predict(image)
+    return featurise_vector
+```
 
 Feature Storage
 
