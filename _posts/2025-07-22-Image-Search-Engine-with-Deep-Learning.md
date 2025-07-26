@@ -35,9 +35,6 @@ After importing the libraries, all images are preprocessed to meet the input req
 The preprocessing pipeline is implemented as follows:
 
 ```python
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.applications.vgg16 import preprocess_input  # Replace with your model's preprocessing
-
 def preprocess_image(image_path):
     image = load_img(image_path, target_size=(224, 224))      # Load and resize image
     image = img_to_array(image)                               # Convert to numpy array
