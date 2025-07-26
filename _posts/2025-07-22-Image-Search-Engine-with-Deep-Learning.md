@@ -45,7 +45,7 @@ def preprocess_image(image_path):
 ```
 
 ## Feature Extraction
-After the image preprocessed, the pre-trained VGG16 model is used to extract high-dimensional feature vectors (embeddings) from images.
+After the image preprocessed, we use a pre-trained VGG16 model (without the top classification layer) to extract 4096-dimensional feature vectors from the preprocessed images. These embeddings capture high-level features essential for similarity comparisons.
 
 Feature Storage
 
