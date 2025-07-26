@@ -53,9 +53,10 @@ def featurise_image(image):
     return featurise_vector
 ```
 
-Feature Storage
+## Feature Storage
+To enable fast and efficient image similarity search, we serialize and store extracted feature vectors using Python's pickle format. This approach provides significant efficiency gains for similarity search operations. # This approach allows for pickle to provide a compact binary format that allows us to quickly deserialize large amounts of feature data into memory during inference. Instead of recalculating embeddings each time the application runs, storing them ensures we only perform the expensive computation once. As the image dataset grows, storing precomputed vectors allows for scalable querying without reprocessing all images.
 
-These vectors are saved in a .pkl file for fast access and querying.
+
 
 Image Search
 
