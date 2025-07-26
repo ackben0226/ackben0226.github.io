@@ -12,20 +12,21 @@ In this post, we demonstrate an Image Search Engine that uses Convolutional Neur
 - _Built with TensorFlow, Keras, scikit-learn, and NumPy_
 
 ## Project Structure
-```Text
+```text
 Image-Search-Engine/
 │
-├── model/
-│   └── feature.pkl             # Serialized feature vectors of images
+├── model/                      # Trained model artifacts
+│   └── feature.pkl             # Precomputed CNN feature vectors (serialized)
 │
-├── images/
-│   └── *.jpg                   # Dataset of footwear or other image items
+├── images/                     # Image dataset directory
+│   └── footwear_dataset/       
+│       ├── heels/
+│       ├── sneakers/
+│       └── boots/
 │
-├── Image Search Engine-Deep Learning.ipynb
-│
-├── app.py                      # (Optional Flask/Streamlit app if deployed)
-│
-└── README.md
+├── Image Search Engine-Deep Learning.ipynb  # End-to-end pipeline (EDA, modeling, evaluation)
+├── app.py                      # Web application interface (Flask/Streamlit)
+└── README.md                   # Project documentation (setup, usage, technical details)
 ```
 
 ## Image Preprocessing
@@ -43,11 +44,8 @@ def preprocess_image(image_path):
     return image
 ```
 
-All images are resized and normalized to fit the input size of the CNN (224x224).
-
-Feature Extraction
-
-The pre-trained VGG16 model (without top layers) is used to extract high-dimensional feature vectors (embeddings) from images.
+## Feature Extraction
+After the image preprocessed, the pre-trained VGG16 model is used to extract high-dimensional feature vectors (embeddings) from images.
 
 Feature Storage
 
