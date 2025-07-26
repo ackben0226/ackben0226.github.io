@@ -11,10 +11,8 @@ In this post, we demonstrate an Image Search Engine that uses Convolutional Neur
 - _Fast approximate search with efficient vector operations_
 - _Built with TensorFlow, Keras, scikit-learn, and NumPy_
 
-🚀 Project Structure
-bash
-Copy
-Edit
+## Project Structure
+```Text
 Image-Search-Engine/
 │
 ├── model/
@@ -28,6 +26,7 @@ Image-Search-Engine/
 ├── app.py                      # (Optional Flask/Streamlit app if deployed)
 │
 └── README.md
+```
 
 ## Image Preprocessing
 After importing the libraries, all images are preprocessed to meet the input requirements of the CNN model (224x224 resolution), including _resizing to 224×224 pixels_, _normalization using model-specific preprocessing_ and _batch dimension expansion_.
