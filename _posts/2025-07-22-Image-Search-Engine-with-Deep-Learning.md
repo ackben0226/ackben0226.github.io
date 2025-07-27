@@ -173,7 +173,7 @@ search_result_files = [file_name[i] for i in image_indices]
 ```
 
 ## Plot Search Results
-We now have all of the information about the 10 most similar images to our search image - let’s see how well it worked by plotting those images!
+We now have all of the information about the 8 most similar images to our search image - let’s see how well it worked by plotting those images!
 
 We plot them in order from most similar to least similar, and include the cosine distance score for reference (smaller is closer, or more similar)
 
