@@ -102,6 +102,33 @@ with open('model/feature_list.pkl', 'wb') as file:
 ```
 
 ## Image Search
+Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
+
+### Setup
+In the code below, we:
+- Load in our VGG16 model
+- Load in our filename store & feature vector store
+- Specify the search image file
+- Specify the number of search results we want
+
+```python
+# Load in the files (required object)
+model = load_model('model/vgg16_model.keras', compile = False)
+
+# Read file_name saved
+# file_name = pickle.load(open('model/file_name.pkl', 'rb')
+
+with open('model/file_name.pkl', 'rb') as file:
+    file_name = pickle.load(file)
+
+# Read feature_list saved
+# feature_list = pickle.load(open('model/feature_list.pkl', 'rb')
+
+with open('model/feature_list.pkl', 'rb') as file:
+    feature_list = pickle.load(file)
+```
+The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
+
 ```ruby
 # Search parameters
 search_results_n = 10  # Show to 10 closest matches
