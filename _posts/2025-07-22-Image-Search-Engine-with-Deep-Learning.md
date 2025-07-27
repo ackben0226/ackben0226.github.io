@@ -132,11 +132,22 @@ The system then retrieves and displays the top 5 to 9 most similar images based 
 ```ruby
 # Search parameters
 search_results_n = 10  # Show to 10 closest matches
-search_image = 'pexels-craytive-1464625.jpg'
+search_image = '000001.jpg'
 all_image = listdir(image_path)
 search_image = os.path.join(image_path, all_image[0])
 print("First image path:", search_image)
+```
 
+search_feature_vector = featurise_image(preprocessed_image)
+<br/><img src="https://github.com/user-attachments/assets/14fa3834-48b8-41ef-981c-45a5724c2b66" alt="000001" width="200"/>
+
+Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
+The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
+
+## Using Cosine Similarities to Locate Similar Images
+Example Output
+Our input image is given below.
+```ruby
 # Preprocess and feature search image
 preprocessed_image = preprocess_image(search_image)
       
@@ -156,13 +167,12 @@ image_distances = image_distances[0].tolist()
 # Get list of filenames from search result
 search_result_files = [file_name[i] for i in image_indices]
 
-```
-Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
-The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
-Example Output
-Our input image is given below.
-<img src="https://github.com/user-attachments/assets/14fa3834-48b8-41ef-981c-45a5724c2b66" alt="000001" width="300"/>
+# Preprocess and feature search image
+preprocessed_image = preprocess_image(search_image)
+```
+      
+
 
 
 
