@@ -2,6 +2,8 @@
 In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
 <br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
 
+## Project Overview
+
 ## Key Features
 - _Deep feature extraction using VGG16_
 - _Search engine returns top-k similar images_
@@ -27,6 +29,38 @@ Image-Search-Engine/
 ├── Image Search Engine-Deep Learning.ipynb  # End-to-end pipeline (EDA, modeling, evaluation)
 ├── app.py                      # Web application interface (Flask/Streamlit)
 └── README.md                   # Project documentation (setup, usage, technical details)
+```
+## Setting Up VGG16
+Keras makes the use of VGG16 very easy. We download the bottom of the VGG16 network (everything up to the Dense Layers) and then add a parameter to ensure that the final layer is not a Max Pooling Layer but instead a Global Max Pooling Layer
+
+In the code below, we:
+
+Import the required packaages
+Set up the image parameters required for VGG16
+Load in VGG16 with Global Average Pooling
+Save the network architecture & weights for use in search engine
+
+```ruby
+# Import packages
+from tensorflow.keras.models import Model, load_model
+from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+import numpy as np
+from os import listdir
+import os
+from sklearn.neighbors import NearestNeighbors
+import matplotlib.pyplot as plt
+import pickle
+
+# Image target
+img_width = 224
+img_height = 224
+num_channels = 3
+
+# Image architecture
+# Load VGG16 without the top classification layer
+vgg = VGG16(input_shape = (img_width, img_height, num_channels), include_top=False, pooling = 'avg')
+# vgg = VGG16(input_shape = (224, 224, 3), include_top=False, pooling = 'avg')
 ```
 
 ## Image Preprocessing
@@ -97,7 +131,6 @@ search_result_files = [file_name[i] for i in image_indices]
 
 ```
 Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
-this retrieve The top 5 or 9 most similar images and displayed to the user. 
 The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
 📊 Example Output
