@@ -1,4 +1,3 @@
-
 In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
 <br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
 
@@ -145,6 +144,13 @@ Once the feature vector pickle files are loaded using (__feature_list = pickle.l
 The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
 ## Using Cosine Similarities to Locate Similar Images
+To locate images from our dataset of 112 images (stored in _image_path_) that are similar to our given __search image__ above, we need to compare the feature vector of the given image to the feature vectors of all our base images. We use the NearestNeighbors class from scikit-learn and then we will apply the Cosine Distance metric to calculate the angle of difference between the feature vectors.
+Cosine Distance essentially measures the angle between any two vectors, and it looks to see whether the two vectors are pointing in a similar direction or not. The more similar the direction the vectors are pointing, the smaller the angle between them in space and the more different the direction the LARGER the angle between them in space. This angle gives us our cosine distance score.
+
+By calculating this score between our search image vector and each of our base image vectors, we can be returned the images with the eight lowest cosine scores - and these will be our eight most similar images, at least in terms of the feature vector representation that comes from our VGG16 network!
+
+
+
 Example Output
 Our input image is given below.
 ```ruby
