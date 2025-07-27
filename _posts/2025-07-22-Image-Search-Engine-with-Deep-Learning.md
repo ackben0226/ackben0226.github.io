@@ -137,11 +137,8 @@ search_image = os.path.join(image_path, all_image[0])
 print("First image path:", search_image)
 ```
 
-search_feature_vector = featurise_image(preprocessed_image)
 <br/><img src="https://github.com/user-attachments/assets/14fa3834-48b8-41ef-981c-45a5724c2b66" alt="000001" width="200"/>
 
-Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
-The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
 ## Using Cosine Similarities to Locate Similar Images
 To locate images from our dataset of 112 images (stored in _image_path_) that are similar to our given __search image__ above, we need to compare the feature vector of the given image to the feature vectors of all our base images. We then use the _**NearestNeighbors**_ class from _**scikit-learn**_ and then apply the _**Cosine Distance metric**_ to calculate the angle of difference between the feature vectors.
@@ -171,6 +168,23 @@ image_distances = image_distances[0].tolist()
 # Get list of filenames from search result
 search_result_files = [file_name[i] for i in image_indices]
 ```
+## Cosine Similarity Plot
+We use the following syntax to visualize the distribution of cosine distances between the search image and its top image matches in the image similarity search:
+This histogram helps interpret how closely related the top retrieved images are to the query image:
+- A tight cluster of low cosine distances indicates strong similarity across the top matches.
+- A wider spread suggests more variation in similarity, which could reflect less consistency in the retrieved images.A tight cluster of low distances indicates high similarity, while more spread-out bars suggest variability.
+
+```python
+def plot_cosine_distance_distribution(image_distances):
+    plt.hist(image_distances[:9], bins=10, color='salmon', edgecolor='black')
+    plt.title("Cosine Distance Distribution of Top Matches")
+    plt.xlabel("Cosine Distance")
+    plt.ylabel("Frequency")
+    plt.grid(True)
+    plt.show()
+```
+plot_cosine_distance_distribution(image_distances)
+
 
 ## Plot Search Results
 We now have all of the information about the 8 most similar images to our search image - let’s see how well it worked by plotting those images!
