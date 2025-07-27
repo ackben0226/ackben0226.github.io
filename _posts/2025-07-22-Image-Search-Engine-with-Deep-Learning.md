@@ -160,8 +160,45 @@ search_result_files = [file_name[i] for i in image_indices]
 Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
 The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
-📊 Example Output
-Given a footwear image as input, the search engine returns similar shoes in terms of style, color, and structure based on deep feature embeddings.
+Example Output
+Our input image is given below.
+<img src="https://github.com/user-attachments/assets/14fa3834-48b8-41ef-981c-45a5724c2b66" alt="000001" width="300"/>
+
+
+
+the search engine returns similar shoes in terms of style, color, and structure based on deep feature embeddings.
+
+```ruby
+from keras.utils import load_img, img_to_array
+import matplotlib.pyplot as plt
+from PIL import Image
+
+for counter, result_file in enumerate(search_result_files[:9]):
+    # Open with PIL first to resize
+    img = Image.open(result_file)
+    img.thumbnail((1024, 1024))  # Resize to max 1024x1024 while keeping aspect ratio
+    
+    # Then convert to array
+    plt.figure(figsize=(18, 8))
+    img = img_to_array(img).astype('uint8') / 255.0
+    ax = plt.subplot(3, 3, counter + 1)
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
+    plt.imshow(img)
+    
+    # Add similarity score (e.g., cosine distance)
+    score = image_distances[counter] 
+    plt.text(
+        0.5, -0.1,
+        f"Score: {round(score, 3)}",
+        fontsize=9,
+        ha='center',
+        transform=ax.transAxes
+    )
+    
+plt.tight_layout()
+plt.show()
+```
 
 
 🛠️ Requirements
