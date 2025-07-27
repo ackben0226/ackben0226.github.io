@@ -149,7 +149,7 @@ To locate images from our dataset of 112 images (stored in _image_path_) that ar
 
 By calculating this score between our search image vector and each of our base image vectors, we can be returned the images with the eight lowest cosine scores - and these will be our eight most similar images, at least in terms of the feature vector representation that comes from our VGG16 network!
 
-We use the code below to Instantiate the Nearest Neighbours logic and specify our metric as Cosine Similarity
+We use the code below to instantiate the Nearest Neighbours logic and specify our metric as Cosine Similarity after preprocessing & featurising logic to the search image.
 
 ```ruby
 # Preprocess and feature search image
@@ -171,10 +171,11 @@ image_distances = image_distances[0].tolist()
 # Get list of filenames from search result
 search_result_files = [file_name[i] for i in image_indices]
 ```
-      
 
+## Plot Search Results
+We now have all of the information about the 10 most similar images to our search image - let’s see how well it worked by plotting those images!
 
-the search engine returns similar shoes in terms of style, color, and structure based on deep feature embeddings.
+We plot them in order from most similar to least similar, and include the cosine distance score for reference (smaller is closer, or more similar)
 
 ```ruby
 from keras.utils import load_img, img_to_array
@@ -230,7 +231,7 @@ Duplicate or near-duplicate image detection
 
 Organizing and indexing large image databases
 
-Recommender systems based on visual similarity
+Recommender systems based on visual similarity 
 
 📁 Future Improvements
 Implement ANN search (e.g., FAISS or Annoy) for scalable retrieval
