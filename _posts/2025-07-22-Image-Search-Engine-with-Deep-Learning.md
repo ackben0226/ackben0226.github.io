@@ -45,7 +45,8 @@ def preprocess_image(image_path):
 ```
 
 ## Feature Extraction
-After preprocessing the images, we use a pre-trained VGG16 model (excluding the top classification layers) to extract 4096-dimensional feature vectors from each image. These feature vectors, or embeddings, represent high-level visual characteristics captured by the model and are crucial for performing accurate image similarity comparisons.
+In image search engine, simple pixel-level does not capture a high-level visual features and semantic meaning unlike the feature vectors. In this case, we use a pre-trained VGG16 model (excluding the top classification layers) to extract 4096-dimensional feature vectors from each image. These feature vectors represent high-level visual characteristics captured by the model and enables semantic similarity comparisons than basic pixel-level matching. This approach is crucial for accurately identifying and retrieving similar images.
+ 
 ```ruby
 # featurise image function/feature extraction
 def featurise_image(image):
@@ -54,17 +55,50 @@ def featurise_image(image):
 ```
 
 ## Feature Storage
-To enable fast and efficient image similarity search, we serialize and store extracted feature vectors using Python's pickle format. This approach provides significant efficiency gains for similarity search operations. # This approach allows for pickle to provide a compact binary format that allows us to quickly deserialize large amounts of feature data into memory during inference. Instead of recalculating embeddings each time the application runs, storing them ensures we only perform the expensive computation once. As the image dataset grows, storing precomputed vectors allows for scalable querying without reprocessing all images.
+To enable fast and efficient image similarity search, we serialize and store the extracted feature vectors in Pickle format (.pkl). This approach offers significant performance benefits by eliminating the need to recompute embeddings for every query. Pickle provides a compact binary format that allows for rapid deserialization of large volumes of feature data into memory during inference. By storing precomputed vectors, we perform the expensive embedding computation only once. As the image dataset scales, this method ensures efficient and scalable querying without the overhead of reprocessing images repeatedly.
 
+```ruby
+# Save key objects for future use
+with open('model/file_name.pkl', 'wb') as file:
+    pickle.dump(file_name, file)
 
+# Save of features
+with open('model/feature_list.pkl', 'wb') as file:
+    pickle.dump(feature_list, file)
+```
 
-Image Search
+## Image Search
+```ruby
+# Search parameters
+search_results_n = 10  # Show to 10 closest matches
+search_image = 'pexels-craytive-1464625.jpg'
+all_image = listdir(image_path)
+search_image = os.path.join(image_path, all_image[0])
+print("First image path:", search_image)
 
-A query image is transformed into a feature vector and compared against stored vectors using cosine similarity.
+# Preprocess and feature search image
+preprocessed_image = preprocess_image(search_image)
+      
+search_feature_vector = featurise_image(preprocessed_image)
 
-Result Display
+# Instantiate nearest neighbors
+image_neighbors = NearestNeighbors(n_neighbors = search_results_n, metric = 'cosine')
+image_neighbors.fit(feature_list)
 
-The top 5 or 9 most similar images are retrieved and displayed to the user.
+# For search image
+image_distances, image_indices = image_neighbors.kneighbors(search_feature_vector)
+
+# Convert closest image indices & distances to lists
+image_indices = image_indices[0].tolist()
+image_distances = image_distances[0].tolist()
+
+# Get list of filenames from search result
+search_result_files = [file_name[i] for i in image_indices]
+
+```
+Once the feature vector pickle files are loaded using (__feature_list = pickle.load(file)__), we use the above syntax to submit a query image. This image is then transformed into a feature vector and compared against stored vectors (embeddings) using cosine similarity. 
+this retrieve The top 5 or 9 most similar images and displayed to the user. 
+The system then retrieves and displays the top 5 to 9 most similar images based on semantic content, enabling real-time, high-accuracy image search with minimal latency—essential for a responsive user experience at
 
 📊 Example Output
 Given a footwear image as input, the search engine returns similar shoes in terms of style, color, and structure based on deep feature embeddings.
