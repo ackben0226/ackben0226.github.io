@@ -183,6 +183,7 @@ def plot_cosine_distance_distribution(image_distances):
     plt.grid(True)
     plt.show()
 ```
+<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/995e0dc3-ee13-441e-b091-9153c8a3a273"/>
 
 
 ## Plot Search Results
@@ -221,3 +222,5 @@ for counter, result_file in enumerate(search_result_files[:9]):
 plt.tight_layout()
 plt.show()
 ```
+<img width="159" height="222" alt="image" src="https://github.com/user-attachments/assets/bf9a113a-8c37-4050-892d-afae2b691581"/><img width="201" height="222" alt="image" src="https://github.com/user-attachments/assets/d0a40974-cc74-4a83-b67c-464c1d82bb9f" />
+
