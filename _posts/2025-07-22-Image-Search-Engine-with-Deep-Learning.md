@@ -140,7 +140,7 @@ print("First image path:", search_image)
 <br/><img src="https://github.com/user-attachments/assets/14fa3834-48b8-41ef-981c-45a5724c2b66" alt="000001" width="200"/>
 
 
-## Using Cosine Similarities to Locate Similar Images
+## Using Cosine Similarity to Locate Similar Images
 To locate images from our dataset of 112 images (stored in _image_path_) that are similar to our given __search image__ above, we need to compare the feature vector of the given image to the feature vectors of all our base images. We then use the _**NearestNeighbors**_ class from _**scikit-learn**_ and then apply the _**Cosine Distance metric**_ to calculate the angle of difference between the feature vectors.
 <br/> Cosine Distance essentially measures the angle between any two vectors, and it looks to see whether the two vectors are pointing in a similar direction or not. The more similar the direction the vectors are pointing, the smaller the angle between them in space and the more different the direction the LARGER the angle between them in space. This angle gives us our cosine distance score.
 
@@ -169,7 +169,7 @@ image_distances = image_distances[0].tolist()
 search_result_files = [file_name[i] for i in image_indices]
 ```
 ## Cosine Similarity Plot
-We use the following syntax to visualize the distribution of cosine distances between the search image and its top image matches in the image similarity search:
+We use the following syntax to visualize the distribution of cosine distances between the search image and its top image matches in the image similarity search.
 This histogram helps interpret how closely related the top retrieved images are to the query image:
 - A tight cluster of low cosine distances indicates strong similarity across the top matches.
 - A wider spread suggests more variation in similarity, which could reflect less consistency in the retrieved images.A tight cluster of low distances indicates high similarity, while more spread-out bars suggest variability.
@@ -183,7 +183,6 @@ def plot_cosine_distance_distribution(image_distances):
     plt.grid(True)
     plt.show()
 ```
-plot_cosine_distance_distribution(image_distances)
 
 
 ## Plot Search Results
