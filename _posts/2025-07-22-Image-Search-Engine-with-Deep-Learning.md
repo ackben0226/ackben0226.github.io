@@ -1,14 +1,19 @@
 ---
 layout: post
 title: Image Search Engine With Deep Learning
-image: "/posts/shirts_image.jpg"
-tags: [Python, VGG16, Cosine Similarity]
+image: "/posts/shirts_image.jpeg"
+tags: [Python, VGG16, Cosine Similarity, Deep Learning]
 ---
 
 In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
 <br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
 
 ## Project Overview
+Our client had been analysing their customer feedback, and one thing in particular came up a number of times.
+<br/> Their customers are aware that they have a great range of competitively priced products in the clothing section - but have said they are struggling to find the products they are looking for on the website.
+<br/> They are often buying much more expensive products, and then later finding out that we actually stocked a very similar, but lower-priced alternative.
+
+Based upon our work for them using a Convolutional Neural Network, they want to know if we can build out something that could be applied here.
 
 ## Key Features
 - _Deep feature extraction using VGG16_
