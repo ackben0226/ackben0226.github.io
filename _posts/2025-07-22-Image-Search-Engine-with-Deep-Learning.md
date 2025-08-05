@@ -30,10 +30,10 @@ Image-Search-Engine/
 │   └── feature.pkl             # Precomputed CNN feature vectors (serialized)
 │
 ├── images/                     # Image dataset directory
-│   └── footwear_dataset/       
-│       ├── heels/
-│       ├── sneakers/
-│       └── boots/
+│   └── shirts_dataset/       
+│       ├── long sleeve/
+│       ├── short sleeve/
+│       └── T-shirt/
 │
 ├── Image Search Engine-Deep Learning.ipynb  # End-to-end pipeline (EDA, modeling, evaluation)
 ├── app.py                      # Web application interface (Flask/Streamlit)
