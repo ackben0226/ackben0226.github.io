@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Image Search Engine With Deep Learning
+title: Creating Image Search Engine With Deep Learning
 image: "/posts/shirts_image.jpeg"
-tags: [Python, VGG16, Cosine Similarity, Deep Learning]
+tags: [Python, VGG16, Cosine Similarity, Deep Learning, CNN]
 ---
 
 In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
