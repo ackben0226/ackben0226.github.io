@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Image Search Engine Using VGG16
-image: "/posts/shirts image.jpeg"
+title: Image Search Engine With Deep Learning
+image: "/posts/shirts_image.jpeg"
 tags: [Python, VGG16, Cosine Similarity]
 ---
 
