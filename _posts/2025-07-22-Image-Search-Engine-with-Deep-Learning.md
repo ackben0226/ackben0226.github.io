@@ -5,15 +5,11 @@ image: "/posts/shirts_image.jpeg"
 tags: [Python, VGG16, Cosine Similarity, Deep Learning, CNN]
 ---
 
-In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. The application is useful for domains such as fashion, e-commerce, or photography, where visual similarity plays a crucial role.
-<br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image and instantly receive the top visually similar images from a reference database.
+As online shopping continues to grow, traditional keyword-based search engines becomes a challenge for customers to find visually similar products, especially when users don't know the right terms to describe what they're looking for.
+In this post, we demonstrate an Image Search Engine that uses Convolutional Neural Networks (CNNs) and deep feature extraction to find visually similar images. 
+<br/> We leverage VGG16, a pre-trained deep learning models, which extracts rich image embeddings and compares them using similarity metrics. This enables users to upload a query image of a product the like and instantly receive the top visually similar images from a reference database such as the image below.
 
 <img width="2456" height="1210" alt="image" src="https://github.com/user-attachments/assets/52545f26-bd28-4abb-8b30-a0e85c1b2ec1" />
-
-## Project Overview
-As online shopping continues to grow, traditional keyword-based search engines becomes a challenge for customers to find visually similar products, especially when users don't know the right terms to describe what they're looking for. 
-<br/> To address, we are building a Deep Learning-powered Image Search Engine designed for e-commerce platforms, where a user uploads a query image of a product they like. The engine then retrieves visually similar items from the product catalog. This is achieved by leveraging deep convolutional neural networks (CNNs) to extract feature embeddings and comparing them using cosine similarity within a high-dimensional vector space.
-
 
 ## Key Features
 - _Deep feature extraction using VGG16_
