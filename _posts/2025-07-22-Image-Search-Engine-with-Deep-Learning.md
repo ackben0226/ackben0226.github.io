@@ -20,7 +20,7 @@ Based upon our work for them using a Convolutional Neural Network, they want to 
 - _Search engine returns top-k similar images_
 - _Works with any custom image dataset (e.g., footwear)_
 - _Cosine distance metric for similarity computation_
-- Uses pre-trained weights (transfer learning)
+- _Uses pre-trained weights (transfer learning)_
 - _Fast approximate search with efficient vector operations_
 - _Built with TensorFlow, Keras, scikit-learn, and NumPy_
 
@@ -41,6 +41,18 @@ Image-Search-Engine/
 ├── app.py                      # Web application interface (Flask/Streamlit)
 └── README.md                   # Project documentation (setup, usage, technical details)
 ```
+
+## Actions
+Here we implement the pre-trained VGG16 network. Instead of the final MaxPooling layer, we we add in a Global Average Pooling Layer at the end of the VGG16 architecture meaning the output of the network will be a single vector of numeric information rather than many arrays. We use “feature vector” to compare image similarity.
+
+We pre-process our 300 base-set images, and then pass them through the VGG16 network to extract their feature vectors. We store these in an object for use when a search image is fed in.
+
+We pass in a search image, apply the same preprocessing steps and again extract the feature vector.
+
+We use Cosine Similarity to compare the search feature vector with all base-set feature vectors, returned the N smallest values. These represent our “most similar” images - the ones that would be returned to the customer.
+
+
+
 ## Setting Up VGG16
 Keras makes the use of VGG16 very easy. We download the bottom of the VGG16 network (everything up to the Dense Layers) and then add a parameter to ensure that the final layer is not a Max Pooling Layer but instead a Global Max Pooling Layer
 
