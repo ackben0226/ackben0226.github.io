@@ -29,3 +29,25 @@ for col in merged_data.columns:
 merged_data.replace([np.inf, -np.inf], np.nan, inplace=True)         # Replace infinite values with NaN
 merged_data = merged_data.dropna(how='any')                          # Drop missing values
 ```
+
+## Feature Scaling & Multicollinearity Check
+To prepare the dataset for machine learning models, we first standardized the features using `StandardScaler`. This ensures that all features have zero mean and unit variance, which is important for distance-based algorithms, including SVM.
+<br/> Next, we evaluated multicollinearity using the Variance Inflation Factor (VIF). High VIF values indicate that a feature is highly correlated with others, which can degrade model performance. Features with VIF > 10 were flagged for removal to reduce redundancy and improve model stability.
+from sklearn.preprocessing import StandardScaler
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+import pandas as pd
+```ruby
+# Standardize features
+scaler = StandardScaler()
+X_scaled = pd.DataFrame(scaler.fit_transform(X), columns=X.columns)
+
+# Compute VIF for each feature
+vif = pd.DataFrame()
+vif['vif_factor'] = [variance_inflation_factor(X_scaled.values, i) for i in range(X_scaled.shape[1])]
+vif['features'] = X_scaled.columns
+
+# Identify highly collinear features
+features_to_remove = list(vif.loc[vif['vif_factor'] > 10, 'features'])
+print(features_to_remove)
+```
+
