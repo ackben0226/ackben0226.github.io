@@ -31,13 +31,15 @@ merged_data = merged_data.dropna(how='any')                          # Drop miss
 ```
 
 ## Feature Scaling & Multicollinearity Check
-To prepare the dataset for machine learning models, we first standardized the features using `StandardScaler`. This ensures that all features have zero mean and unit variance, which is important for distance-based algorithms, including SVM.
+To prepare the dataset for machine learning models, we first standardized the features using `StandardScaler`. This ensures that all features have zero mean and unit variance and are on the same scale.
 <br/> Next, we evaluated multicollinearity using the Variance Inflation Factor (VIF). High VIF values indicate that a feature is highly correlated with others, which can degrade model performance. Features with VIF > 10 were flagged for removal to reduce redundancy and improve model stability.
+
+```ruby
 from sklearn.preprocessing import StandardScaler
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 import pandas as pd
-```ruby
-# Standardize features
+
+# Initialize 
 scaler = StandardScaler()
 X_scaled = pd.DataFrame(scaler.fit_transform(X), columns=X.columns)
 
