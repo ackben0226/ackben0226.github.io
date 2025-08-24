@@ -50,4 +50,18 @@ vif['features'] = X_scaled.columns
 features_to_remove = list(vif.loc[vif['vif_factor'] > 10, 'features'])
 print(features_to_remove)
 ```
+## Label Encoding & Final Feature Preparation
+Encoded target labels (benign/malicious) into numerical values using LabelEncoder, so they can be used by supervised learning models.
+Prepared the feature matrix (X) and target vector (y) for model training.
+This step ensures that the dataset is ready for model training with all features scaled and target labels numeric.
+```ruby
+from sklearn.preprocessing import LabelEncoder
 
+# Encode target labels
+lab_enc = LabelEncoder()
+merged_data['Label'] = lab_enc.fit_transform(merged_data['Label'])
+
+# Prepare features and labels
+feats = X_scaled2          # preprocessed and scaled feature set
+label = merged_data['Label'].values
+```
