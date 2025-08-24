@@ -87,3 +87,27 @@ train_set_ids, test_set_ids = train_test_split(
 ### Feature Importance Analysis with Random Forests
 In this section, I conducted a feature importance analysis to understand which attributes most strongly influenced model predictions. an essential step for explainability in security operations As part of my cybersecurity threat detection research. This step was essential for improving explainability, a critical requirement in security operations where practitioners need to justify and trust automated decisions.
 <br/> I trained the dataset using `Random Forest Regressor (n_estimators = 100, max_depth = 10)` model. This model assigned an importance score to each feature, quantifying its contribution to prediction accuracy.
+<br/> I then visualized the most influential features in ascending order of importance using __Matplotlib library__ as shown in the horizontal barplot below.
+
+```python
+from sklearn.ensemble import RandomForestRegressor
+
+forest = RandomForestRegressor(n_estimators = 100, max_depth = 10)
+forest.fit(train_data, train_labels)
+feature_names = feats.columns
+importances = forest.feature_importances_
+print('feature importance:', importances)
+
+import matplotlib.pyplot as plt
+
+feature_importance = feature_importance.sort_values('importance', ascending=True)
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.barh(feature_importance['feature'], feature_importance['importance'], color='skyblue')
+plt.xlabel('Importances')
+plt.ylabel('Features')
+plt.title('Feature Importances')
+plt.show()
+```
+<img width="844" height="547" alt="image" src="https://github.com/user-attachments/assets/9fb941fa-aaa8-451a-b8ec-e75c1d7b1c46" />
