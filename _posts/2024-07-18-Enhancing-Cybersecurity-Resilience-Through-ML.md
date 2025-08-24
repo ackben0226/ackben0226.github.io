@@ -22,7 +22,7 @@ merged_data = pd.concat(dfs, ignore_index=True)  # Concatenate files
 After successfully concatenating the files, we standardized column names by stripping whitespace, cleaned categorical features by removing corrupted symbols (�) and replaced infinite values with NaN and dropped incomplete rows. This ensures a clean, reliable dataset ready for modeling.
 
 ```python
-merged_data.columns = merged_data.columns.str.strip()   # Strip whitespace
+merged_data.columns = merged_data.columns.str.strip()                # Strip whitespace
 for col in merged_data.columns:
     if(merged_data[col].dtype == "object"):
         merged_data[col] = merged_data[col].str.replace('�', '')    # Replace unknown symbols/characters
