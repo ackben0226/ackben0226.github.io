@@ -2,7 +2,7 @@
 layout: post
 title: Optimizing NHS Patient Wait Time Analysis 
 image: "/posts/patient_wait_time.png"
-tags: [Python, Primes]
+tags: [Python, ARIMA]
 ---
 
 **A Data-Driven Framework to Reduce Costs & Improve Emergency Care Efficiency**
