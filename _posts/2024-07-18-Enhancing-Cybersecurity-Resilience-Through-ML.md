@@ -187,7 +187,7 @@ y_prob_xgb = xgb_model.predict_proba(X_test)[:, 1]
 y_prob_dt = dt_model.predict_proba(X_test)[:, 1]
 ```
 ## Result
-### Performance Analysis of each model
+__Performance Analysis of each model__
 The table below summarizes the performance of the four trained models on the test set:
 | Model | Accuracy (%) | Precision (%) | Recall (%) | F1-Score (%) |
 | ----- | ------------ | ------------- | ---------- | ------------ |
@@ -200,4 +200,7 @@ __Key Insights:__
 - All models achieved high predictive performance, with ensemble methods (Random Forest and XGBoost) slightly outperforming the single-tree and SVM models.
 - XGBoost achieved the highest F1-score, indicating excellent balance between precision and recall.
 - SVM performed well but lagged slightly behind ensemble methods, likely due to high-dimensional data despite PCA.
+
+<img width="850" height="350" alt="image" src="https://github.com/user-attachments/assets/52a9f553-756d-41b2-bbe8-cb15156eb26d" />
+
 
