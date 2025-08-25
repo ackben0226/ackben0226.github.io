@@ -127,7 +127,7 @@ To evaluate model performance objectively, we split the dataset into `training` 
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-# Assume feats and label are predefined as per the snippet
+# feats and label
 feats = merged_data_pca_df
 label = merged_data['Label'].values
 
@@ -147,4 +147,26 @@ y_train = label[train_set_ids]
 # Testing set
 X_test = feats.iloc[test_set_ids, :]
 y_test = label[test_set_ids]
+```
+### Model Training for SVC, RF, XGB and DT
+After preprocessing, dimensionality reduction (PCA) and splitting the dataset, I trained multiple supervised learning models to evaluate their performance on the dataset. The following models were implemented:
+__Support Vector Classifier (SVC)__,__Random Forest (RF)__, __XGBoost (XGB)__, __Decision Tree (DT)__
+
+```python
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+# Initialize models
+svc = SVC()
+rfc = RandomForestClassifier(n_estimators= 100, max_depth = 10)
+xgb = XGBClassifier()
+dt_model = DecisionTreeClassifier()
+
+# Fit models
+svc_model.fit(X_train, y_train)
+rf_model.fit(X_train, y_train)
+xgb_model.fit(X_train, y_train)
+dt_model.fit(X_train, y_train)
 ```
