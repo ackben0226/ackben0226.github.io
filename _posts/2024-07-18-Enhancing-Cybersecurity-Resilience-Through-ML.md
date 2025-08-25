@@ -113,3 +113,24 @@ plt.title('Feature Importances')
 plt.show()
 ```
 <img width="844" height="547" alt="image" src="https://github.com/user-attachments/assets/9fb941fa-aaa8-451a-b8ec-e75c1d7b1c46" />
+
+### PCA for Dimension Reduction
+After encoding the categorical features, the dataset became highly dimensional. To address this, I applied Principal Component Analysis (PCA), reducing the feature space to 10 principal components while retaining the most meaningful patterns. This approach preserved the features with the greatest variance and predictive power, improved computational efficiency, and reduced noise, ultimately making the modeling process more robust and easier to interpret.
+```ruby
+from sklearn.decomposition import PCA
+
+# Reducing dimensions to 10 components
+pca = PCA(n_components=10)
+merged_data_pca = pca.fit_transform(X_scaled2)
+
+# Transform pca into DataFrame of 10 dimensions
+merged_data_pca_df = pd.DataFrame(data=merged_data_pca, columns=[f'PC{i+1}' for i in range(10)])
+merged_data_pca_df.head()
+```
+|Index  |PC1	|PC2	|PC3	|PC4	|PC5	|PC6	|PC7	|PC8	|PC9	|PC10|
+|----|-------|-------|-------|-------|-------|------|------|---------|-------|-----|
+|0	|2.656354	|0.407357	|0.069625	|-0.267616	|-0.097811	|-0.343545	|0.010062	|0.143420	|0.378717	|-0.221853|
+|1	|1.786847	|0.205950	|-0.013894	|0.002700	|-0.028225	|-0.239581	|0.184643	|0.337759	|0.121639	|0.013272|
+|2	|2.341815	|0.343219	|0.053673	|-0.199320	|-0.086107	|-0.226751	|-0.005145	|0.118177	|0.215375	|-0.111739|
+|3	|-0.700773	|0.461455	|-1.589482	|-0.353896	|-0.298374	|0.190028	|0.383688	|-0.556352	|-0.415059	|0.882087|
+|4	|-0.529991	|-1.469167	|0.657939	|0.207449	|0.064370	|0.557679	|0.049590	|0.536566	|-0.655648	|0.032474|
