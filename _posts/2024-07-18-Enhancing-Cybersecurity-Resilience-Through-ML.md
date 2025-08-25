@@ -170,3 +170,34 @@ rf_model.fit(X_train, y_train)
 xgb_model.fit(X_train, y_train)
 dt_model.fit(X_train, y_train)
 ```
+### Model Prediction
+After I had trained and fitted each model, I used them to make predictions on the test set. This step allowed me to evaluate how well the models generalize to unseen data and assess their predictive performance using metrics such as accuracy, precision, recall, F1-score, and ROC-AUC. 
+
+```ruby
+# Make predictions
+y_pred_svc = svc_model.predict(X_test)
+y_pred_rf = rf_model.predict(X_test)
+y_pred_xgb = xgb_model.predict(X_test)
+y_pred_dt = dt_model.predict(X_test)
+
+# Predict probabilities for ROC-AUC
+y_prob_svc = svc_model.predict_proba(X_test)[:, 1]
+y_prob_rf = rf_model.predict_proba(X_test)[:, 1]
+y_prob_xgb = xgb_model.predict_proba(X_test)[:, 1]
+y_prob_dt = dt_model.predict_proba(X_test)[:, 1]
+```
+## Result
+### Performance Analysis of each model
+The table below summarizes the performance of the four trained models on the test set:
+| Model | Accuracy (%) | Precision (%) | Recall (%) | F1-Score (%) |
+| ----- | ------------ | ------------- | ---------- | ------------ |
+| SVM   | 90.48        | 95.86         | 94.05      | 94.95        |
+| RF    | 98.44        | 99.22         | 98.91      | 99.07        |
+| DT    | 98.38        | 98.99         | 99.08      | 99.03        |
+| XGB   | 98.52        | 99.29         | 98.97      | 99.13        |
+
+__Key Insights:__
+- All models achieved high predictive performance, with ensemble methods (Random Forest and XGBoost) slightly outperforming the single-tree and SVM models.
+- XGBoost achieved the highest F1-score, indicating excellent balance between precision and recall.
+- SVM performed well but lagged slightly behind ensemble methods, likely due to high-dimensional data despite PCA.
+
