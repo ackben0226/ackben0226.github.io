@@ -7,7 +7,6 @@ layout: default
         <div class="col col-12 col-t-12">
             <div class="row">
                 {% for post in paginator.posts %}
-                    <h2 class="colored-title">{{ post.title }}</h2>
                     {% include post-card.html %}
                 {% endfor %}
             </div>
@@ -15,4 +14,5 @@ layout: default
         </div>
     </div>
 </div>
+
 
