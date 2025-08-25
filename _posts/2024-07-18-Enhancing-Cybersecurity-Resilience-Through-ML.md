@@ -214,9 +214,9 @@ The aim of this project was to detect malicious activity (positive class) accura
 - TN: Correctly ignored benign traffic
 
 ### Confusion Matrix Visualizations
-| <img width="300" height="320" src="https://github.com/user-attachments/assets/1eacf863-cabb-4d14-ba06-5772764615a0" /> | <img width="300" height="320" src="https://github.com/user-attachments/assets/0ce7371e-69bc-4f0e-ae3f-f0ecd41a8748" /> |
-|---|---|
-| <img width="300" height="320" src="https://github.com/user-attachments/assets/c57fefee-b411-4fa1-ae79-b9083d946c6e" /> | <img width="300" height="320" src="https://github.com/user-attachments/assets/aa1a230d-5ba5-401e-88ce-b90e15008ec9" /> |
+<img width="645" height="637" alt="Screenshot 2025-08-25 175353" src="https://github.com/user-attachments/assets/ad1a9599-5ef4-43fa-9725-e55e6441a47a" />
+
+
 
 
 
