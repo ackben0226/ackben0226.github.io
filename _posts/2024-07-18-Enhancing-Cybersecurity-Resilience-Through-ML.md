@@ -1,8 +1,7 @@
 ---
 Post:
-image:
-title: 'Enhancing Cybersecurity Resilience: Leveraging Machine Learning for Advanced 
-Threat Detection and Response'
+title: 'Enhancing Cybersecurity Resilience: Leveraging Machine Learning for Advanced Threat Detection and Response'
+image: "/posts/Cybersecurity.jpg"
 ---
 This project explores the application of machine learning techniques to cybersecurity, focusing on network traffic classification for intrusion detection. It compares supervised learning models like Random Forest (RF), XGBoost (XGB), Decision Trees (DT), and Support Vector Machines (SVM) across benchmark datasets such as CICIDS2017 and UNSW-NB15. The research aims to enhance threat detection accuracy, minimize false positives, and optimize resource use in cybersecurity operations.
 
@@ -127,13 +126,6 @@ merged_data_pca = pca.fit_transform(X_scaled2)
 merged_data_pca_df = pd.DataFrame(data=merged_data_pca, columns=[f'PC{i+1}' for i in range(10)])
 merged_data_pca_df.head()
 ```
-|Index  |PC1	|PC2	|PC3	|PC4	|PC5	|PC6	|PC7	|PC8	|PC9	|PC10|
-|----|-------|-------|-------|-------|-------|------|------|---------|-------|-----|
-|0	|2.656354	|0.407357	|0.069625	|-0.267616	|-0.097811	|-0.343545	|0.010062	|0.143420	|0.378717	|-0.221853|
-|1	|1.786847	|0.205950	|-0.013894	|0.002700	|-0.028225	|-0.239581	|0.184643	|0.337759	|0.121639	|0.013272|
-|2	|2.341815	|0.343219	|0.053673	|-0.199320	|-0.086107	|-0.226751	|-0.005145	|0.118177	|0.215375	|-0.111739|
-|3	|-0.700773	|0.461455	|-1.589482	|-0.353896	|-0.298374	|0.190028	|0.383688	|-0.556352	|-0.415059	|0.882087|
-|4	|-0.529991	|-1.469167	|0.657939	|0.207449	|0.064370	|0.557679	|0.049590	|0.536566	|-0.655648	|0.032474|
 
 | Index | PC1       | PC2       | PC3       | PC4       | PC5       | PC6       | PC7       | PC8       | PC9       | PC10      |
 | ----- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
