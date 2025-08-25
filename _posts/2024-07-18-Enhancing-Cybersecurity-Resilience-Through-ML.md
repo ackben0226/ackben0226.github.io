@@ -206,4 +206,18 @@ __Key Insights:__
 
 <img width="750" height="350" alt="image" src="https://github.com/user-attachments/assets/52a9f553-756d-41b2-bbe8-cb15156eb26d" />
 
+### Confusion Matrix Insights
+The aim of this project was to detect malicious activity (positive class) accurately. Binary confusion matrices for SVM, Random Forest, Decision Tree, and XGBoost show:
+- TP: Correctly detected attacks
+- FN: Missed attacks (critical to minimize)
+- FP: False alarms (generates alert fatigue)
+- TN: Correctly ignored benign traffic
+
+### Confusion Matrix Visualizations
+| <img width="250" height="270" src="https://github.com/user-attachments/assets/1eacf863-cabb-4d14-ba06-5772764615a0" /> | <img width="250" height="270" src="https://github.com/user-attachments/assets/0ce7371e-69bc-4f0e-ae3f-f0ecd41a8748" /> |
+|---|---|
+| <img width="250" height="270" src="https://github.com/user-attachments/assets/c57fefee-b411-4fa1-ae79-b9083d946c6e" /> | <img width="250" height="270" src="https://github.com/user-attachments/assets/aa1a230d-5ba5-401e-88ce-b90e15008ec9" /> |
+
+
+
 Clone the repository: git clone https:[//github.com/ackben0226/cybersecurity-ml.git]
