@@ -123,7 +123,7 @@ merged_data_pca_df.head()
 <img width="500" height="393" alt="image" src="https://github.com/user-attachments/assets/d6afc719-c428-4ddd-9635-70034156c61e" />
 
 ### Splitting Data into Training and Testing Sets
-To evaluate model performance objectively, we split the dataset into `training` and `testin`g sets into a 70:30 ratio using `train_test_split` from scikit-learn after the PCA. This ensures that the training set provides enough data for model learning while reserving a test set for unbiased evaluation. A fixed random seed was used to maintain reproducibility.
+To evaluate model performance objectively, we split the dataset into `training` and `testing` sets into a `70:30` ratio using `train_test_split` from scikit-learn after the PCA. This ensures that the training set provides enough data for model learning while reserving a test set for unbiased evaluation. A fixed random seed was used to maintain reproducibility.
 
 ```ruby
 import numpy as np
