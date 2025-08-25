@@ -118,7 +118,8 @@ merged_data_pca_df.head()
 | 2     | 2.341815  | 0.343219  | 0.053673  | -0.199320 | -0.086107 | -0.226751 | -0.005145 | 0.118177  | 0.215375  | -0.111739 |
 | 3     | -0.700773 | 0.461455  | -1.589482 | -0.353896 | -0.298374 | 0.190028  | 0.383688  | -0.556352 | -0.415059 | 0.882087  |
 | 4     | -0.529991 | -1.469167 | 0.657939  | 0.207449  | 0.064370  | 0.557679  | 0.049590  | 0.536566  | -0.655648 | 0.032474  |
-<img width="536" height="393" alt="image" src="https://github.com/user-attachments/assets/d6afc719-c428-4ddd-9635-70034156c61e" />
+
+<img width="500" height="393" alt="image" src="https://github.com/user-attachments/assets/d6afc719-c428-4ddd-9635-70034156c61e" />
 
 ### Splitting Data into Training and Testing Sets
 To evaluate model performance objectively, we split the dataset into `training` and `testin`g sets into a 70:30 ratio using `train_test_split` from scikit-learn after the PCA. This ensures that the training set provides enough data for model learning while reserving a test set for unbiased evaluation. A fixed random seed was used to maintain reproducibility.
