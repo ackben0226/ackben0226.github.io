@@ -191,11 +191,13 @@ y_prob_dt = dt_model.predict_proba(X_test)[:, 1]
 __Performance Analysis of each model__
 The table below summarizes the performance of the four trained models on the test set:
 | Model | Accuracy (%) | Precision (%) | Recall (%) | F1-Score (%) |
-| ----- | ------------ | ------------- | ---------- | ------------ |
+| ----- | ------------ | ------------- | ---------- | ------------ 
+|
 | SVM   | 90.48        | 95.86         | 94.05      | 94.95        |
 | RF    | 98.44        | 99.22         | 98.91      | 99.07        |
 | DT    | 98.38        | 98.99         | 99.08      | 99.03        |
-| XGB   | 98.52        | 99.29         | 98.97      | 99.13        |
+| XGB   | 98.52        | 99.29         | 98.97      | 99.13        
+|
 
 __Key Insights:__
 - All models achieved high predictive performance, with ensemble methods (Random Forest and XGBoost) slightly outperforming the single-tree and SVM models.
