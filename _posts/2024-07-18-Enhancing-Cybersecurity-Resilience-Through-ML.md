@@ -68,23 +68,7 @@ merged_data['Label'] = lab_enc.fit_transform(merged_data['Label'])
 feats = X_scaled2          # preprocessed and scaled feature set
 label = merged_data['Label'].values
 ```
-### Splitting Data into Training and Testing Sets
-To evaluate model performance objectively, we split the dataset into `training` and `testin`g sets into a 70:30 ratio using `train_test_split` from scikit-learn. This ensures that the training set provides enough data for model learning while reserving a test set for unbiased evaluation. A fixed random seed was used to maintain reproducibility.
 
-```ruby
-import numpy as np
-from sklearn.model_selection import train_test_split
-
-# Generate IDs for splitting
-all_ids = np.arange(0, feats.shape[0])
-random_seed = 1
-
-# Splitting 70:30
-train_set_ids, test_set_ids = train_test_split(
-    all_ids, test_size=0.3, train_size=0.7,
-    random_state=random_seed, shuffle=True
-)
-```
 ### Feature Importance Analysis with Random Forests
 In this section, I conducted a feature importance analysis to understand which attributes most strongly influenced model predictions. an essential step for explainability in security operations As part of my cybersecurity threat detection research. This step was essential for improving explainability, a critical requirement in security operations where practitioners need to justify and trust automated decisions.
 <br/> I trained the dataset using `Random Forest Regressor (n_estimators = 100, max_depth = 10)` model. This model assigned an importance score to each feature, quantifying its contribution to prediction accuracy.
@@ -134,4 +118,33 @@ merged_data_pca_df.head()
 | 2     | 2.341815  | 0.343219  | 0.053673  | -0.199320 | -0.086107 | -0.226751 | -0.005145 | 0.118177  | 0.215375  | -0.111739 |
 | 3     | -0.700773 | 0.461455  | -1.589482 | -0.353896 | -0.298374 | 0.190028  | 0.383688  | -0.556352 | -0.415059 | 0.882087  |
 | 4     | -0.529991 | -1.469167 | 0.657939  | 0.207449  | 0.064370  | 0.557679  | 0.049590  | 0.536566  | -0.655648 | 0.032474  |
+<img width="536" height="393" alt="image" src="https://github.com/user-attachments/assets/d6afc719-c428-4ddd-9635-70034156c61e" />
 
+### Splitting Data into Training and Testing Sets
+To evaluate model performance objectively, we split the dataset into `training` and `testin`g sets into a 70:30 ratio using `train_test_split` from scikit-learn after the PCA. This ensures that the training set provides enough data for model learning while reserving a test set for unbiased evaluation. A fixed random seed was used to maintain reproducibility.
+
+```ruby
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+# Assume feats and label are predefined as per the snippet
+feats = merged_data_pca_df
+label = merged_data['Label'].values
+
+# Generate IDs for splitting
+all_ids = numpy.arange(0, feats.shape[0])
+
+random_seed = 1
+
+# Then splitting the data 70:30 into training and test sets
+train_set_ids, test_set_ids = train_test_split(all_ids, test_size=0.3, train_size=0.7,
+                                              random_state=random_seed, shuffle=True)
+
+# Training set
+X_train = feats.iloc[train_set_ids, :]
+y_train = label[train_set_ids]
+
+# Testing set
+X_test = feats.iloc[test_set_ids, :]
+y_test = label[test_set_ids]
+```
