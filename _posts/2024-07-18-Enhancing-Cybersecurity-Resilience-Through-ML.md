@@ -201,6 +201,6 @@ __Key Insights:__
 - XGBoost achieved the highest F1-score, indicating excellent balance between precision and recall.
 - SVM performed well but lagged slightly behind ensemble methods, likely due to high-dimensional data despite PCA.
 
-<img width="850" height="350" alt="image" src="https://github.com/user-attachments/assets/52a9f553-756d-41b2-bbe8-cb15156eb26d" />
+<img width="750" height="350" alt="image" src="https://github.com/user-attachments/assets/52a9f553-756d-41b2-bbe8-cb15156eb26d" />
 
 
