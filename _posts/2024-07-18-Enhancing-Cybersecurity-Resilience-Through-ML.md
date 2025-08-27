@@ -4,7 +4,9 @@ title: 'Enhancing Cybersecurity Resilience: Leveraging Machine Learning for Adva
 image: "/posts/cyberimage.jpg"
 tag: [Python, PCA, XGBoost, RFC, SVC, DT]
 ---
-This project explores the application of machine learning techniques to cybersecurity, focusing on network traffic classification for intrusion detection. It compares supervised learning models like Random Forest (RF), XGBoost (XGB), Decision Trees (DT), and Support Vector Machines (SVM) across benchmark datasets such as CICIDS2017. The research aims to enhance threat detection accuracy, minimize false positives, and optimize resource use in cybersecurity operations.
+## Project Description
+This project explores the application of machine learning techniques to cybersecurity, focusing on network traffic classification for intrusion detection and Invalid Traffic (IVT) detection. It compares supervised learning models like Random Forest (RF), XGBoost (XGB), Decision Trees (DT), and Support Vector Machines (SVM) across benchmark datasets such as CICIDS2017. 
+The research aims to enhance threat detection accuracy, minimize false positives, reduce IVT-related risks, and optimize resource use in cybersecurity operations.
 
 ## Table of Content
 - Project Description
@@ -71,7 +73,7 @@ label = merged_data['Label'].values
 ```
 
 ### Feature Importance Analysis with Random Forests
-In this section, I conducted a feature importance analysis to understand which attributes most strongly influenced model predictions. an essential step for explainability in security operations As part of my cybersecurity threat detection research. This step was essential for improving explainability, a critical requirement in security operations where practitioners need to justify and trust automated decisions.
+In this section, I conducted a feature importance analysis to understand which attributes most strongly influenced model predictions. This step was essential for improving explainability, a critical requirement in security operations where practitioners need to justify and trust automated decisions.
 <br/> I trained the dataset using `Random Forest Regressor (n_estimators = 100, max_depth = 10)` model. This model assigned an importance score to each feature, quantifying its contribution to prediction accuracy.
 <br/> I then visualized the most influential features in ascending order of importance using __Matplotlib library__ as shown in the horizontal barplot below.
 
