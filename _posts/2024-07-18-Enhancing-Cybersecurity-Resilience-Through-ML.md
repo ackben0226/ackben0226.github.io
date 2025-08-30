@@ -218,8 +218,33 @@ The aim of this project was to detect malicious activity (positive class) accura
 ### Confusion Matrix Visualizations
 <img width="645" height="637" alt="Screenshot 2025-08-25 175353" src="https://github.com/user-attachments/assets/ad1a9599-5ef4-43fa-9725-e55e6441a47a" />
 
+### ROC-AUC Curve
+To distinguish attack traffic from normal traffic with high reliability, I implemented the ROC-AUC metric. The results demonstrated strong detection performance with reduced false positives, supporting real-world deployment. An AUC score close to 1.0 confirmed the model’s highly reliable classification capability.
+
+```ruby
+import matplotlib.pyplot as plt
+from sklearn.metrics import auc
+import numpy as np
+
+plt.figure(figsize=(6, 5))
+for model, (TP, FP, TN, FN) in cm_data.items():
+    tpr = TP / (TP + FN)
+    fpr = FP / (FP + TN)
+    plt.plot([0, fpr, 1], [0, tpr, 1], label=f'{model} (AUC = {auc([0, fpr, 1], [0, tpr, 1]):.2f})')
+
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve of CICIDS2017 Models')
+plt.legend(loc="lower right")
+plt.grid(alpha=0.3)
+plt.show()
+```
+<img width="547" height="470" alt="image" src="https://github.com/user-attachments/assets/087de698-220f-4668-9652-b2a8dfcfe295" />
 
 
 
 
 Clone the repository: git clone https:[//github.com/ackben0226/cybersecurity-ml.git]
+
+
