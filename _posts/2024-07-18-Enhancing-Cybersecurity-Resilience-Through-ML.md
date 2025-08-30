@@ -12,9 +12,6 @@ The research aims to enhance threat detection accuracy, minimize false positives
 - Project Description
 - Actions
 
-## 🎥 Project Demo
-[![Watch the video](https://img.youtube.com/vi/p4Y9IKeX9UM/0.jpg)](https://www.youtube.com/watch?v=p4Y9IKeX9UM)
-
 ## Actions
 We extracted the CICIDS2017 benchmark dataset, which contains multiple network traffic files, including DDoS, PortScan, Infiltration, Web Attacks, and regular working-hour traffic. To ensure balanced and manageable processing, we randomly sampled 31,437 instances from each file, saved them as CSV files, before concatenating them into a unified dataset.
 
