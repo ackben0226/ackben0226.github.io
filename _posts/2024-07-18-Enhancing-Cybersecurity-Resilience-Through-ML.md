@@ -209,7 +209,7 @@ __Key Insights:__
 <img width="750" height="350" alt="image" src="https://github.com/user-attachments/assets/52a9f553-756d-41b2-bbe8-cb15156eb26d" />
 
 ### Confusion Matrix Insights
-The aim of this project was to detect malicious activity (positive class) accurately. Binary confusion matrices for SVM, Random Forest, Decision Tree, and XGBoost show:
+To accurately detect malicious network activity, I used confusion matrices to evaluate model performance. They show which attacks were correctly detected, which were missed, and how often normal traffic was mistakenly flagged. This provides a clear picture of the model’s strengths and weaknesses, which is crucial in cybersecurity to catch threats effectively while avoiding false alarms that can overwhelm security teams.
 - TP: Correctly detected attacks
 - FN: Missed attacks (critical to minimize)
 - FP: False alarms (generates alert fatigue)
@@ -217,6 +217,7 @@ The aim of this project was to detect malicious activity (positive class) accura
 
 ### Confusion Matrix Visualizations
 <img width="645" height="637" alt="Screenshot 2025-08-25 175353" src="https://github.com/user-attachments/assets/ad1a9599-5ef4-43fa-9725-e55e6441a47a" />
+
 
 ### ROC-AUC Curve
 To distinguish attack traffic from normal traffic with high reliability, I implemented the ROC-AUC metric. The results demonstrated strong detection performance with reduced false positives, supporting real-world deployment. An AUC score close to 1.0 confirmed the model’s highly reliable classification capability.
